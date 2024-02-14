@@ -1,5 +1,7 @@
 # 🐾 Na-Log 🐾
 
+> **No-Answer**를 **Yes-Answer**로!
+
 ## 🎉 Introduction
 
 안녕하세요! 😀
@@ -31,8 +33,8 @@ Na-Log 개발에는 아래와 같은 기술 스택이 사용되었습니다! �
 |    Tech Stack    |                           Used                            |  version  |
 | :--------------: | :-------------------------------------------------------: |  :-----:  |
 |     Language     |                        TypeScript                         |   5.3.3   |
-|    Library       |                           React                           |   18.2.0  |
 |    FrameWork     |                           Next.js                         |   14.1.0  |
+|    Library       |                           React                           |   18.2.0  |
 | Package Manager  |                            Yarn                           |  1.22.21  |
 |      CI/CD       |             GitHub Actions <br> GitHub Pages              |           |
 | Project Managing | GitHub Projects <br> GitHub MileStones <br> GitHub Issues |           |
