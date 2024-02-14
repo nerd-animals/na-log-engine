@@ -28,13 +28,14 @@ Na-Log는, Raccoon과 Otter가 함께 만드는 Tech git-blog입니다. \
 
 Na-Log 개발에는 아래와 같은 기술 스택이 사용되었습니다! 💪
 
-|    Tech Stack    |                           Used                            |
-| :--------------: | :-------------------------------------------------------: |
-|     Language     |                        TypeScript                         |
-|    FrameWork     |                           Next.js                         |
-| Package Manager  |                            Yarn                           |
-|      CI/CD       |             GitHub Actions <br> GitHub Pages              |
-| Project Managing | GitHub Projects <br> GitHub MileStones <br> GitHub Issues |
+|    Tech Stack    |                           Used                            |  version  |
+| :--------------: | :-------------------------------------------------------: |  :-----:  |
+|     Language     |                        TypeScript                         |   5.3.3   |
+|    Library       |                           React                           |   18.2.0  |
+|    FrameWork     |                           Next.js                         |   14.1.0  |
+| Package Manager  |                            Yarn                           |  1.22.21  |
+|      CI/CD       |             GitHub Actions <br> GitHub Pages              |           |
+| Project Managing | GitHub Projects <br> GitHub MileStones <br> GitHub Issues |           |
 
 ## 📌 Develop Rule
 
