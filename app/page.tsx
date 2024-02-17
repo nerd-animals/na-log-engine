@@ -1,4 +1,4 @@
-import Bio from './_components/Bio';
+import Bio from './_components/bio';
 
 export default function Home() {
   return (
