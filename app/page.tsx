@@ -1,9 +1,10 @@
+import Bio from './_components/Bio';
+
 export default function Home() {
   return (
-    <main>
-      <div>
-        <p>hello, na-log!</p>
-      </div>
-    </main>
+    <div>
+      <Bio />
+      <main>content</main>
+    </div>
   );
 }
