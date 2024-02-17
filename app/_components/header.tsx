@@ -5,10 +5,14 @@ export default function Header() {
     <div className="page-header-wrapper">
       <header className="page-header">
         <div className="home-section">
-          <Link href="/">na-log</Link>
+          <Link className="link" href="/">
+            na-log
+          </Link>
         </div>
         <div className="category-section">
-          <Link href="/about">about</Link>
+          <Link className="link" href="/about">
+            about
+          </Link>
         </div>
       </header>
     </div>
