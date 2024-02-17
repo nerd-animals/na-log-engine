@@ -1,3 +1,10 @@
+// page style
+.page-wrapper {
+  text-align: center;
+  position: relative;
+  padding: 30px;
+}
+
 // header style
 .page-header-wrapper {
   display: flex;
@@ -32,9 +39,47 @@
   padding: 20px;
 }
 
-// page style
-.page-wrapper {
-  text-align: center;
-  position: relative;
-  padding: 30px;
+// postcard style
+.post-card-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  flex-direction: column;
+}
+.post-card {
+  display: flex;
+  flex-direction: column;
+  height: 140px;
+  width: 800px;
+  border: 1px solid;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 15px;
+  overflow: hidden;
+  cursor: pointer;
+  text-decoration: none;
+  color: #000;
+
+  &-title {
+    text-align: left;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  &-summary {
+    text-align: left;
+    font-size: 15px;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    word-break: break-word;
+  }
+  &-info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+    color: gray;
+    font-size: 13px;
+  }
 }
