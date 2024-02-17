@@ -1,10 +1,13 @@
 import Bio from './_components/Bio';
+import PostCard from './_components/PostCard';
 
 export default function Home() {
   return (
     <div>
       <Bio />
-      <main>content</main>
+      <main>
+        <PostCard />
+      </main>
     </div>
   );
 }
