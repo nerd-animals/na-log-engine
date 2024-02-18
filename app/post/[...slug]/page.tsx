@@ -3,13 +3,13 @@ import { notFound } from 'next/navigation';
 
 export function generateStaticParams() {
   return allPosts.map((post) => {
-    const parts = post.slugAsParams.split('/').filter(part => part !== '');
+    const parts = post.slug.split('/').filter(part => part !== '');
     return { slug: parts };
   });
 }
 
 function getPost(slug: string) {
-  const post = allPosts.find((p) => p.slugAsParams === slug);
+  const post = allPosts.find((p) => p.slug === slug);
 
   if (!post) {
     notFound();
