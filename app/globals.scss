@@ -108,3 +108,30 @@ mark {
     line-height: 0px;
   }
 }
+
+.about-member {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  font-size: 18px;
+
+  &-title {
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 2px;
+    background-color: rgb(176, 238, 50);
+  }
+  &-info {
+    display: flex;
+    flex-direction: column;
+  }
+  &-raccoon,
+  &-otter {
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+  }
+  &-raccoon {
+    margin-bottom: 10px;
+  }
+}
