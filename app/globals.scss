@@ -109,6 +109,19 @@ mark {
   }
 }
 
+.about {
+  &-content {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    padding: 5px;
+  }
+  &-description {
+    font-size: 18px;
+    word-break: keep-all;
+  }
+}
+
 .about-member {
   display: flex;
   align-items: center;
