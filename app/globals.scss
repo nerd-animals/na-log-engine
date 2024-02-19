@@ -157,3 +157,14 @@ mark {
     margin-bottom: 10px;
   }
 }
+
+.about-tech {
+  margin-right: 10px;
+  background-color: rgb(210, 255, 120);
+  border-radius: 5px;
+  padding: 2px;
+  &-list {
+    display: flex;
+    margin-bottom: 10px;
+  }
+}
