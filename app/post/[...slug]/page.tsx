@@ -1,9 +1,10 @@
 import { allPosts } from 'contentlayer/generated';
 import { notFound } from 'next/navigation';
+import MdxComponent from '../../_components/MdxComponent';
 
 export function generateStaticParams() {
   return allPosts.map((post) => {
-    const parts = post.slug.split('/').filter(part => part !== '');
+    const parts = post.slug.split('/').filter((part) => part !== '');
     return { slug: parts };
   });
 }
@@ -22,13 +23,8 @@ export default function Post({ params }: { params: { slug: string[] } }) {
 
   return (
     <div>
-      <div>_id : {post._id}</div>
       <div>title : {post.title}</div>
-      <div>flattenedPath : {post._raw.flattenedPath}</div>
-      <div>date : {post.date}</div>
-      <div>slug : {post.slug}</div>
-      <div>body.raw : {post.body.raw}</div>
-      <div>body.html : {post.body.html}</div>
+      <MdxComponent code={post.body.code} />
     </div>
   );
 }
