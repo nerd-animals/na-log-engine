@@ -1,3 +1,9 @@
+// common style
+mark {
+  background: linear-gradient(to top, rgb(176, 238, 50) 50%, transparent 50%);
+  border-radius: 5px;
+}
+
 // page style
 .page-wrapper {
   text-align: center;
@@ -81,5 +87,24 @@
     margin-top: auto;
     color: gray;
     font-size: 13px;
+  }
+}
+
+.line-header {
+  display: flex;
+  flex-basis: 100%;
+  align-items: center;
+  margin: 8px 0px;
+  font-weight: bold;
+
+  &::before,
+  &::after {
+    content: '';
+    flex-grow: 1;
+    margin: 0px 5px;
+    background: black;
+    height: 2px;
+    font-size: 0px;
+    line-height: 0px;
   }
 }
