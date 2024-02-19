@@ -119,6 +119,12 @@ mark {
 }
 
 .about {
+  &-section {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    text-align: justify;
+  }
   &-content {
     display: flex;
     flex-direction: column;
