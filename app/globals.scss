@@ -6,7 +6,7 @@ mark {
 
 // page style
 .page-wrapper {
-  text-align: center;
+  text-align: justify;
   position: relative;
   padding: 30px;
 }
@@ -43,6 +43,14 @@ mark {
   font-size: 15px;
   font-weight: 500;
   padding: 20px;
+  text-align: center;
+}
+
+// bio style
+.bio {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 // postcard style
@@ -68,12 +76,10 @@ mark {
   color: #000;
 
   &-title {
-    text-align: left;
     font-size: 20px;
     font-weight: bold;
   }
   &-summary {
-    text-align: left;
     font-size: 15px;
     display: -webkit-box;
     -webkit-line-clamp: 4;
@@ -90,11 +96,11 @@ mark {
   }
 }
 
+// about style
 .about-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  text-align: justify;
   margin: 0px auto;
   width: 800px;
 }
@@ -123,7 +129,6 @@ mark {
     display: flex;
     flex-direction: column;
     padding: 10px;
-    text-align: justify;
   }
   &-content {
     display: flex;
@@ -164,6 +169,7 @@ mark {
   }
 }
 
+// about(project) style
 .about-project-title {
   font-size: 20px;
   font-weight: bold;
