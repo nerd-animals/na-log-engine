@@ -6,7 +6,7 @@ mark {
 
 // page style
 .page-wrapper {
-  text-align: center;
+  text-align: justify;
   position: relative;
   padding: 30px;
 }
@@ -68,12 +68,10 @@ mark {
   color: #000;
 
   &-title {
-    text-align: left;
     font-size: 20px;
     font-weight: bold;
   }
   &-summary {
-    text-align: left;
     font-size: 15px;
     display: -webkit-box;
     -webkit-line-clamp: 4;
@@ -94,7 +92,6 @@ mark {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  text-align: justify;
   margin: 0px auto;
   width: 800px;
 }
@@ -123,7 +120,6 @@ mark {
     display: flex;
     flex-direction: column;
     padding: 10px;
-    text-align: justify;
   }
   &-content {
     display: flex;
