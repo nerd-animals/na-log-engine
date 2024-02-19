@@ -46,6 +46,12 @@ mark {
   text-align: center;
 }
 
+// bio style
+.bio {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
 // postcard style
 .post-card-wrapper {
   display: flex;
