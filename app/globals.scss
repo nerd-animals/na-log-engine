@@ -90,6 +90,15 @@ mark {
   }
 }
 
+.about-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: justify;
+  margin: 0px auto;
+  width: 800px;
+}
+
 .line-header {
   display: flex;
   flex-basis: 100%;
