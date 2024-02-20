@@ -11,8 +11,8 @@ export default function Bio() {
         height={200}
       />
       <div className="bio-introduction">
-        Nerd Animals
-        <br /> No-answer를 Yes-answer로!
+        <strong>Nerd Animals</strong>
+        <br /> <strong>No-answer</strong>를 <strong>Yes-answer</strong>로!
       </div>
     </div>
   );
