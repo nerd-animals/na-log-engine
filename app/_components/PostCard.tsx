@@ -9,9 +9,11 @@ export default function PostCard() {
           <div className="post-card-summary">{post.summary}</div>
           <div className="post-card-info">
             <div className="post-card-date">{post.date}</div>
-            {post.categories.map((category) => (
-              <div className="post-card-categories">{category}</div>
-            ))}
+            <div className="post-card-categories">
+              {post.categories.map((category) => (
+                <div className="post-card-category">{category}.</div>
+              ))}
+            </div>
           </div>
         </div>
       ))}
