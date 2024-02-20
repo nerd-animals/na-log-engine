@@ -102,6 +102,12 @@ mark {
     color: gray;
     font-size: 13px;
   }
+  &-categories {
+    display: flex;
+  }
+  &-category {
+    margin-left: 3px;
+  }
 }
 
 // about style
