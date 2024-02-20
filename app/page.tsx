@@ -10,7 +10,15 @@ export default function Home() {
       <main>
         <PostCard />
       </main>
-        {allPosts.map((post) => <div><Link href={`/post/${post.slug}`} key={post._id}>{post.title}</Link></div>) /* this is test code */}
+      {
+        allPosts.map((post) => (
+          <div>
+            <Link href={`/post/${post.slug}`} key={post._id}>
+              {post.title}
+            </Link>
+          </div>
+        )) /* this is test code */
+      }
     </div>
   );
 }
