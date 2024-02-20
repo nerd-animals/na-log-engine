@@ -14,7 +14,14 @@ export default function PostCard() {
             <div className="post-card-title">{post.title}</div>
             <div className="post-card-summary">{post.summary}</div>
             <div className="post-card-info">
-              <div className="post-card-date">{post.date}</div>
+              <div className="post-card-date">
+                {new Date(post.date).toLocaleDateString('en-us', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: '2-digit',
+                  weekday: 'short',
+                })}
+              </div>
               <div className="post-card-categories">
                 {post.categories.map((category) => (
                   <div className="post-card-category">{category}.</div>
