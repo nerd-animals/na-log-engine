@@ -23,7 +23,7 @@ export default function Post({ params }: { params: { slug: string[] } }) {
 
   return (
     <div className="post-wrapper">
-      <div>title : {post.title}</div>
+      <div>{post.title}</div>
       <MdxComponent code={post.body.code} />
     </div>
   );
