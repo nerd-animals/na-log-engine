@@ -23,10 +23,7 @@ export const Post = defineDocumentType(() => ({
 }));
 
 const rehypePrettyCodeOptions = {
-  theme: {
-    light: 'github-light',
-    dark: 'github-dark',
-  },
+  theme: 'github-light',
 };
 
 export default makeSource({
