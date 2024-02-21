@@ -1,6 +1,7 @@
 import { allPosts } from 'contentlayer/generated';
 import { notFound } from 'next/navigation';
 import MdxComponent from '../../_components/MdxComponent';
+import './mdx.scss';
 
 export function generateStaticParams() {
   return allPosts.map((post) => {
