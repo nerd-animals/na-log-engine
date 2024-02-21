@@ -18,6 +18,14 @@ blockquote {
   margin-inline-start: 5px;
 }
 
+// 백틱
+code {
+  background-color: #f0f0f0;
+  padding: 1px 4px;
+  border-radius: 5px;
+  color: tomato;
+}
+
 // 목록
 ol,
 ul {
