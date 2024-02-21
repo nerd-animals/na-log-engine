@@ -201,11 +201,13 @@ mark {
 }
 
 // post/[...slug] style
-.post-wrapper {
-  margin: 0px auto;
-  width: 800px;
-}
-.post-title {
-  font-size: 2em;
-  font-weight: bold;
+.post {
+  &-wrapper {
+    margin: 0px auto;
+    width: 800px;
+  }
+  &-title {
+    font-size: 2em;
+    font-weight: bold;
+  }
 }
