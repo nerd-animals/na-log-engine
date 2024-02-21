@@ -1,6 +1,7 @@
 import { allPosts } from 'contentlayer/generated';
 import { notFound } from 'next/navigation';
 import MdxComponent from '../../_components/MdxComponent';
+import './mdx.scss';
 
 export function generateStaticParams() {
   return allPosts.map((post) => {
@@ -22,8 +23,8 @@ export default function Post({ params }: { params: { slug: string[] } }) {
   const post = getPost(params.slug.join('/'));
 
   return (
-    <div>
-      <div>title : {post.title}</div>
+    <div className="post-wrapper">
+      <div className="post-title">{post.title}</div>
       <MdxComponent code={post.body.code} />
     </div>
   );

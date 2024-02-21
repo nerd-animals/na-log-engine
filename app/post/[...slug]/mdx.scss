@@ -1,0 +1,60 @@
+.post-wrapper {
+  font-size: 17px;
+
+  // 콜아웃
+  aside {
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    padding: 3px;
+    padding-left: 20px;
+    margin: auto;
+  }
+
+  // 인용구
+  blockquote {
+    border-left: 5px solid;
+    padding-left: 10px;
+    margin-inline-start: 5px;
+  }
+
+  // 백틱
+  code {
+    background-color: #f0f0f0;
+    padding: 1px 4px;
+    border-radius: 5px;
+    color: tomato;
+  }
+
+  // 표
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  td,
+  th {
+    border: 1px solid #ccc;
+    padding: 8px;
+  }
+
+  // 목록
+  ol,
+  ul {
+    padding-inline-start: 20px;
+  }
+  li {
+    padding-left: 10px;
+  }
+
+  // 링크
+  a {
+    text-decoration: none;
+    color: rgb(136, 204, 0);
+    &:hover {
+      color: #fff;
+      background-color: rgb(147, 219, 3);
+      border-radius: 5px;
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+  }
+}
