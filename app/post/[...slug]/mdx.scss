@@ -11,6 +11,13 @@ aside {
   margin: auto;
 }
 
+// 인용구
+blockquote {
+  border-left: 5px solid;
+  padding-left: 10px;
+  margin-inline-start: 5px;
+}
+
 // 목록
 ol,
 ul {
