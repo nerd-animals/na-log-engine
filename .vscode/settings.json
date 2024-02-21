@@ -2,5 +2,11 @@
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "typescript.tsdk": "node_modules/typescript/lib",
-  "typescript.enablePromptUseWorkspaceTsdk": true
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "pasteImage.defaultName": "YYMMDD-HHmmss",
+  "pasteImage.basePath": "${projectRoot}/public",
+  "pasteImage.path": "${projectRoot}/public/posts/${currentFileNameWithoutExt}",
+  "pasteImage.forceUnixStyleSeparator": true,
+  "pasteImage.insertPattern": "<img src=\"/na-log${imageFilePath}\" alt=\"${imageFileNameWithoutExt}\" width=\"50%\" />",
+  "pasteImage.prefix": "/"
 }
