@@ -40,6 +40,9 @@ export default function Post({ params }: { params: { slug: string[] } }) {
           })}
         </div>
       </div>
+      <div className="post-author">
+        ✍️ written by <strong>{post.author}</strong>
+      </div>
       <MdxComponent code={post.body.code} />
     </div>
   );
