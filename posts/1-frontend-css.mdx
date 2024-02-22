@@ -32,7 +32,7 @@ categories: ['front-end', 'css']
 HTML이 정의한 친구들에게 요소의 색상, 크기, 레이아웃, 폰트 등 다양한 스타일을 입혀줄 수 있다.
 
 <img
-  src="/na-log/posts/1-frontend-css/240222-002614.png"
+  src="/na-log/images/posts/1-frontend-css/240222-002614.png"
   alt="240222-002614"
   width="50%"
 />
@@ -45,9 +45,7 @@ HTML이 정의한 친구들에게 요소의 색상, 크기, 레이아웃, 폰트
 
 선언 구역에서 **스타일 종류(속성) : 스타일 값**으로 스타일을 선언해주면 HTML에서 그 구역을 보고 적용시킬 것이다.
 
-![CSS 적용 시 흔히 발생하는 일.gif](https://prod-files-secure.s3.us-west-2.amazonaws.com/705c7877-060b-46a6-b1f8-8781900ddb28/4dda89d3-c108-42f6-ac77-4ed7c317191a/CSS_shit.gif)
-
-CSS 적용 시 흔히 발생하는 일.gif
+<img src="/na-log/images/common/CSS_wtf.gif" alt="CSS_wtf" width="50%" />
 
 ## Cascading
 
@@ -61,9 +59,11 @@ CSS을 작업하다보면, 여러 스타일 규칙이 한 요소에 적용되기
 
 중요한 스타일 적용 규칙이기 때문에 제대로 이해하지 못하고 남발한다면, 위의 짤방처럼 웃픈 일이 발생된다.
 
-![X발](https://prod-files-secure.s3.us-west-2.amazonaws.com/705c7877-060b-46a6-b1f8-8781900ddb28/a1775a38-5790-4eae-9c79-c03552f9de42/%E1%84%85%E1%85%AE%E1%84%91%E1%85%B5_%E1%84%8B%E1%85%AD%E1%86%A8_%E1%84%8D%E1%85%A1%E1%86%AF%E1%84%87%E1%85%A1%E1%86%BC.jpeg)
-
-X발
+<img
+  src="/na-log/images/posts/1-frontend-css/240222-113205.png"
+  alt="240222-113205"
+  width="50%"
+/>
 
 ~~(아는 사람 얘기다.)~~
 
@@ -73,7 +73,7 @@ CSS Cascading은 다음 3가지에 의해 결정된다.
 - 명시도 : 선택자 특정성의 중요도가 높은지
 - 선언 순서
 
-![important.gif](https://prod-files-secure.s3.us-west-2.amazonaws.com/705c7877-060b-46a6-b1f8-8781900ddb28/5c34746c-7b65-4bc2-9f8b-62bda1f091a7/important.gif)
+<img src="/na-log/images/common/important.gif" alt="important" width="50%" />
 
 ### 중요도
 
@@ -133,7 +133,7 @@ CSS Cascading은 다음 3가지에 의해 결정된다.
    }
    ```
 
-![giphy.gif](https://prod-files-secure.s3.us-west-2.amazonaws.com/705c7877-060b-46a6-b1f8-8781900ddb28/8a93a91f-ab3a-4700-910e-4f4517416878/giphy.gif)
+<img src="/na-log/images/common/clarity.gif" alt="clarity" width="50%" />
 
 ### 명시도
 
@@ -220,7 +220,7 @@ CSS Cascading은 다음 3가지에 의해 결정된다.
    </html>
    ```
 
-![declare.webp](https://prod-files-secure.s3.us-west-2.amazonaws.com/705c7877-060b-46a6-b1f8-8781900ddb28/7ea1f952-00f8-482f-a974-8c8d12c1d9c8/declare.webp)
+<img src="/na-log/images/common/declare.webp" alt="declare" width="50%" />
 
 ### 선언 순서
 
@@ -260,7 +260,11 @@ CSS Cascading은 다음 3가지에 의해 결정된다.
 }
 ```
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/705c7877-060b-46a6-b1f8-8781900ddb28/3e70ef0d-4e5b-4921-9589-e0ae37a82833/Untitled.png)
+<img
+  src="/na-log/images/posts/1-frontend-css/240222-113551.png"
+  alt="240222-113551"
+  width="50%"
+/>
 
 이런 코드에서는, `#container p`가 우선적용 될 것이다. 못 믿겠으면 한번 직접 해보자!
 
@@ -291,7 +295,11 @@ CSS Cascading은 다음 3가지에 의해 결정된다.
 
 아래 코드로는 당연히 blue가 적용될 것이다.
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/705c7877-060b-46a6-b1f8-8781900ddb28/763656e5-db5a-4c5a-a81d-6fd4b9405067/Untitled.png)
+<img
+  src="/na-log/images/posts/1-frontend-css/240222-113624.png"
+  alt="240222-113624"
+  width="70%"
+/>
 
 Cascading 규칙이 어렵고, 직관적이지 못하다면 [해당 사이트](https://specificity.keegan.st/)를 이용해보자.
 
