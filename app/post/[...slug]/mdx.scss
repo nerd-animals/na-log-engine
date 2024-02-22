@@ -57,6 +57,13 @@
       padding-right: 5px;
     }
   }
+  // 외부 링크
+  .external-link::after {
+    content: '\f08e'; /* Font Awesome의 아이콘 코드 */
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    margin-left: 3px;
+  }
 
   // 코드블럭
   figure {
