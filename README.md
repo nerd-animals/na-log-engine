@@ -30,14 +30,28 @@ Na-Log는, Raccoon과 Otter가 함께 만드는 Tech git-blog입니다. \
 
 Na-Log 개발에는 아래와 같은 기술 스택이 사용되었습니다! 💪
 
-|    Tech Stack    |                           Used                            |  version  |
-| :--------------: | :-------------------------------------------------------: |  :-----:  |
-|     Language     |                        TypeScript                         |   5.3.3   |
-|    FrameWork     |                           Next.js                         |   14.1.0  |
-|    Library       |                           React                           |   18.2.0  |
-| Package Manager  |                            Yarn                           |  1.22.21  |
-|      CI/CD       |             GitHub Actions <br> GitHub Pages              |           |
-| Project Managing | GitHub Projects <br> GitHub MileStones <br> GitHub Issues |           |
+|    Tech Stack    |                           Used                            | version |
+| :--------------: | :-------------------------------------------------------: | :-----: |
+|     Language     |                        TypeScript                         |  5.3.3  |
+|    FrameWork     |                          Next.js                          | 14.1.0  |
+|     Library      |                           React                           | 18.2.0  |
+| Package Manager  |                           Yarn                            | 1.22.21 |
+|      CI/CD       |             GitHub Actions <br> GitHub Pages              |         |
+| Project Managing | GitHub Projects <br> GitHub MileStones <br> GitHub Issues |         |
+
+## 🧰 Extension
+
+Na-log를 사용하려면 아래와 같은 extension이 필요합니다. 💡
+
+### [📷Paste image](https://marketplace.visualstudio.com/items?itemName=mushan.vscode-paste-image)
+
+글 포스팅을 할 때, 그림 파일을 일일이 가져와서 저장하는 것이 번거로워 해당 extension을 사용하기로 했습니다.
+
+1. Vscode **paste image** extension을 local에 다운받습니다.
+2. 이미지 복사 후 mdx 파일에 Ctrl+Alt+V(command+option+V `on Mac`)를 합니다.
+
+- 이미지 **파일** 복사 불가(이미지 **자체**를 우클릭하여 복사해야합니다.)
+- **gif** 파일 불가
 
 ## 📌 Develop Rule
 
