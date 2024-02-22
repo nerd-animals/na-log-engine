@@ -33,7 +33,11 @@ export default function Post({ params }: { params: { slug: string[] } }) {
           weekday: 'short',
         })}
       </div>
-      <div>{post.categories}</div>
+      <div className="post-categories">
+        {post.categories.map((category) => (
+          <div className="post-category">{category}</div>
+        ))}
+      </div>
       <MdxComponent code={post.body.code} />
     </div>
   );
