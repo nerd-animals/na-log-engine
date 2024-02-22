@@ -26,6 +26,11 @@ export default function Post({ params }: { params: { slug: string[] } }) {
     <div className="post-wrapper">
       <div className="post-title">{post.title}</div>
       <div className="post-info">
+        <div className="post-categories">
+          {post.categories.map((category) => (
+            <div className="post-category">{category}</div>
+          ))}
+        </div>
         <div className="post-date">
           {new Date(post.date).toLocaleDateString('en-us', {
             year: 'numeric',
@@ -33,11 +38,6 @@ export default function Post({ params }: { params: { slug: string[] } }) {
             day: '2-digit',
             weekday: 'short',
           })}
-        </div>
-        <div className="post-categories">
-          {post.categories.map((category) => (
-            <div className="post-category">{category}</div>
-          ))}
         </div>
       </div>
       <MdxComponent code={post.body.code} />
