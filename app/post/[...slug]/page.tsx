@@ -32,6 +32,7 @@ export default function Post({ params }: { params: { slug: string[] } }) {
           ))}
         </div>
         <div className="post-date">
+          🗓️{' '}
           {new Date(post.date).toLocaleDateString('en-us', {
             year: 'numeric',
             month: 'long',
