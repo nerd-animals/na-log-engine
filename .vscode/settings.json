@@ -5,7 +5,7 @@
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "pasteImage.defaultName": "YYMMDD-HHmmss",
   "pasteImage.basePath": "${projectRoot}/public",
-  "pasteImage.path": "${projectRoot}/public/posts/${currentFileNameWithoutExt}",
+  "pasteImage.path": "${projectRoot}/public/images/posts/${currentFileNameWithoutExt}",
   "pasteImage.forceUnixStyleSeparator": true,
   "pasteImage.insertPattern": "<img src=\"/na-log${imageFilePath}\" alt=\"${imageFileNameWithoutExt}\" width=\"50%\" />",
   "pasteImage.prefix": "/"
