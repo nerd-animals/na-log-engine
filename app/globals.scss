@@ -210,4 +210,23 @@ mark {
     font-size: 2em;
     font-weight: bold;
   }
+  &-info {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0 10px 0;
+  }
+  &-date {
+    color: gray;
+    font-weight: 500;
+  }
+  &-categories {
+    font-weight: bold;
+    display: flex;
+  }
+  &-category {
+    background-color: lightgray;
+    border-radius: 5px;
+    padding: 3px 5px;
+    margin-right: 5px;
+  }
 }
