@@ -39,6 +39,20 @@ Na-Log 개발에는 아래와 같은 기술 스택이 사용되었습니다! �
 |      CI/CD       |             GitHub Actions <br> GitHub Pages              |         |
 | Project Managing | GitHub Projects <br> GitHub MileStones <br> GitHub Issues |         |
 
+## 🧰 Extension
+
+Na-log를 사용하려면 아래와 같은 extension이 필요합니다. 💡
+
+### [📷Paste image](https://marketplace.visualstudio.com/items?itemName=mushan.vscode-paste-image)
+
+글 포스팅을 할 때, 그림 파일을 일일이 가져와서 저장하는 것이 번거로워 해당 extension을 사용하기로 했습니다.
+
+1. Vscode **paste image** extension을 local에 다운받습니다.
+2. 이미지 복사 후 mdx 파일에 Ctrl+Alt+V(command+option+V `on Mac`)를 합니다.
+
+- 이미지 **파일** 복사 불가(이미지 **자체**를 우클릭하여 복사해야합니다.)
+- **gif** 파일 불가
+
 ## 📌 Develop Rule
 
 효과적인 협업&개발을 위해 저희가 채택한 팀 규칙입니다. 😀
