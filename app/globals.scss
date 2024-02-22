@@ -213,13 +213,14 @@ mark {
   &-info {
     display: flex;
     justify-content: space-between;
-    font-weight: bold;
     margin: 10px 0 10px 0;
   }
   &-date {
     color: gray;
+    font-weight: 500;
   }
   &-categories {
+    font-weight: bold;
     display: flex;
   }
   &-category {
