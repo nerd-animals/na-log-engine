@@ -210,10 +210,17 @@ mark {
     font-size: 2em;
     font-weight: bold;
   }
+  &-author {
+    color: gray;
+    text-align: right;
+    & strong {
+      color: black;
+    }
+  }
   &-info {
     display: flex;
     justify-content: space-between;
-    margin: 10px 0 10px 0;
+    margin: 10px 0 0 0;
   }
   &-date {
     color: gray;
