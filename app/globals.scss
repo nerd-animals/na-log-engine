@@ -83,6 +83,13 @@ mark {
   text-decoration: none;
   color: #000;
 
+  &:hover {
+    .post-card-title,
+    .post-card-summary {
+      text-decoration: underline;
+    }
+  }
+
   &-category {
     font-size: 15px;
     color: gray;
