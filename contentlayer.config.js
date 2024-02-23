@@ -20,6 +20,13 @@ export const Post = defineDocumentType(() => ({
       type: 'string',
       resolve: (post) => `${post._raw.flattenedPath}`,
     },
+    categories: {
+      type: 'list',
+      resolve: (file) => {
+        const categories = file._raw.flattenedPath.split('/').slice(0, -1);
+        return categories;
+      },
+    },
   },
 }));
 
