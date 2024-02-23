@@ -102,10 +102,10 @@ mark {
     color: gray;
     font-size: 13px;
   }
-  &-categories {
+  &-tags {
     display: flex;
   }
-  &-category {
+  &-tag {
     margin-left: 3px;
   }
 }
@@ -225,12 +225,13 @@ mark {
   &-date {
     color: gray;
     font-weight: 500;
+    padding-bottom: 5px;
   }
-  &-categories {
+  &-tags {
     font-weight: bold;
     display: flex;
   }
-  &-category {
+  &-tag {
     background-color: lightgray;
     border-radius: 5px;
     padding: 3px 5px;

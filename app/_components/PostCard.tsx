@@ -22,10 +22,12 @@ export default function PostCard() {
                   weekday: 'short',
                 })}
               </div>
-              <div className="post-card-categories">
-                {post.categories.map((category) => (
-                  <div className="post-card-category">{category}.</div>
-                ))}
+              <div className="post-card-tags">
+                {post.tags
+                  ? post.tags.map((tag) => (
+                      <div className="post-card-tag">{tag}.</div>
+                    ))
+                  : null}
               </div>
             </div>
           </Link>
