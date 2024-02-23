@@ -24,7 +24,7 @@ export default function Post({ params }: { params: { slug: string[] } }) {
 
   return (
     <div className="post-wrapper">
-      <div className="post-categories">
+      <div className="post-category">
         {post.categories[post.categories.length - 1]}
       </div>
       <div className="post-title">{post.title}</div>
