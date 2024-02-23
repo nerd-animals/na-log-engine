@@ -26,6 +26,7 @@ export default function PostCard() {
                   ))
                 : null}
             </div>
+            <div className="post-card-categories">{post.categories}</div>
           </div>
         </Link>
       ))}
