@@ -25,7 +25,9 @@ export default function PostCard() {
               <div className="post-card-tags">
                 {post.tags
                   ? post.tags.map((tag) => (
-                      <div className="post-card-tag">{tag}.</div>
+                      <div className="post-card-tag" key={tag}>
+                        {tag}.
+                      </div>
                     ))
                   : null}
               </div>

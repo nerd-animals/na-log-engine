@@ -28,7 +28,11 @@ export default function Post({ params }: { params: { slug: string[] } }) {
       <div className="post-info">
         <div className="post-tags">
           {post.tags
-            ? post.tags.map((tag) => <div className="post-tag">{tag}</div>)
+            ? post.tags.map((tag) => (
+                <div className="post-tag" key={tag}>
+                  {tag}
+                </div>
+              ))
             : null}
         </div>
         <div className="post-date">
