@@ -6,7 +6,7 @@ export default function PostCard() {
     <div className="post-card-wrapper">
       {allPosts.map((post) => (
         <Link className="post-card" href={`/post/${post.slug}`} key={post._id}>
-          <div className="post-card-categories">
+          <div className="post-card-category">
             {post.categories[post.categories.length - 1]}
           </div>
           <div className="post-card-title">{post.title}</div>
