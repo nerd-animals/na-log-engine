@@ -26,10 +26,10 @@ export default function Post({ params }: { params: { slug: string[] } }) {
     <div className="post-wrapper">
       <div className="post-title">{post.title}</div>
       <div className="post-info">
-        <div className="post-categories">
-          {post.categories.map((category) => (
-            <div className="post-category">{category}</div>
-          ))}
+        <div className="post-tags">
+          {post.tags
+            ? post.tags.map((tag) => <div className="post-tag">{tag}</div>)
+            : null}
         </div>
         <div className="post-date">
           🗓️{' '}
