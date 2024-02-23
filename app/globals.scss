@@ -16,6 +16,7 @@ mark {
   display: flex;
   height: 60px;
   justify-content: center;
+  margin-bottom: 50px;
 }
 .page-header {
   display: flex;
@@ -23,18 +24,22 @@ mark {
   justify-content: space-between;
   vertical-align: center;
   font-size: 20px;
-  padding: 20px;
+  padding: 20px 20px 30px 20px;
+
   font-weight: 600;
   max-width: 800px;
   width: 100%;
-}
-
-.link {
-  color: black;
-  text-decoration: none;
-
-  &:hover {
-    font-weight: 800;
+  border-bottom: 5px groove;
+  .link {
+    color: black;
+    text-decoration: none;
+    background-color: rgb(170, 255, 178);
+    border-radius: 25px;
+    padding: 3px 5px;
+    transition: background 0.5s ease-in-out;
+    &:hover {
+      background-color: rgb(255, 237, 116);
+    }
   }
 }
 
