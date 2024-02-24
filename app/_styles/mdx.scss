@@ -75,12 +75,33 @@
       vertical-align: middle;
     }
   }
-  // 외부 링크
-  .external-link::after {
-    content: '\f08e'; /* Font Awesome의 아이콘 코드 */
-    font-family: 'Font Awesome 5 Free';
-    font-weight: 900;
-    margin-left: 3px;
+
+  // anchor
+
+  .anchor {
+    position: relative;
+    display: inline-block;
+    color: #282828;
+    text-decoration: none;
+
+    &::after {
+      display: inline-block;
+      content: '\f0c1';
+      font-family: 'Font Awesome 5 Free';
+      font-weight: 900;
+      font-size: 13px;
+      margin-left: 10px;
+      margin-bottom: 4px;
+      vertical-align: middle;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+    &:hover {
+      padding: 0px;
+    }
+    &:hover::after {
+      opacity: 1;
+    }
   }
 
   // 코드블럭
