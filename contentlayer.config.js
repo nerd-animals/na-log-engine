@@ -3,6 +3,7 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
 import rehypePrettyCode from 'rehype-pretty-code';
+import rehypeExternalLinks from 'rehype-external-links';
 
 export const Post = defineDocumentType(() => ({
   name: 'Posts',
@@ -58,6 +59,16 @@ export default makeSource({
           properties: {
             className: ['anchor'],
           },
+        },
+      ],
+      [
+        rehypeExternalLinks,
+        {
+          properties: {
+            class: 'external-link',
+          },
+          target: '_blank',
+          rel: ['noopener noreferrer'],
         },
       ],
     ],
