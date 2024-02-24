@@ -46,15 +46,33 @@
   }
 
   // 링크
-  a {
-    text-decoration: none;
-    color: rgb(136, 204, 0);
-    &:hover {
-      color: #fff;
-      background-color: rgb(147, 219, 3);
+  p {
+    a {
+      text-decoration: none;
+      color: rgb(136, 204, 0);
+      transition: 0.5s ease-in-out;
       border-radius: 5px;
       padding-left: 5px;
       padding-right: 5px;
+      &:hover {
+        color: #fff;
+        background-color: rgb(147, 219, 3);
+        border-radius: 5px;
+        padding-left: 5px;
+        padding-right: 5px;
+      }
+    }
+    // 외부 링크
+    .external-link::after {
+      content: '\f08e'; /* Font Awesome의 아이콘 코드 */
+      font-family: 'Font Awesome 5 Free';
+      font-weight: 900;
+      display: inline-block;
+
+      margin-bottom: 2px;
+      margin-left: 3px;
+      font-size: 13px;
+      vertical-align: middle;
     }
   }
   // 외부 링크
