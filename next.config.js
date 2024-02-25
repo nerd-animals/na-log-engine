@@ -3,7 +3,7 @@ const { withContentlayer } = require('next-contentlayer');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  basePath: '/na-log',
+  basePath: process.env.basePath,
   output: 'export',
   reactStrictMode: true,
   swcMinify: true,
