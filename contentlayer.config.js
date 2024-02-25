@@ -7,7 +7,7 @@ import rehypeExternalLinks from 'rehype-external-links';
 
 export const Post = defineDocumentType(() => ({
   name: 'Posts',
-  filePathPattern: `**/*.mdx`,
+  filePathPattern: `posts/**/*.mdx`,
   contentType: 'mdx',
   fields: {
     title: { type: 'string', required: true },
@@ -30,7 +30,7 @@ export const Post = defineDocumentType(() => ({
             'posts 안의 post에 최소 1개의 카테고리(상위 폴더)를 지정해주세요.'
           );
         }
-        if (categories.length > 3) {
+        if (categories.length > 4) {
           throw new Error(
             'post는 최대 3개의 카테고리(상위 폴더)까지 설정할 수 있습니다.'
           );
@@ -41,13 +41,26 @@ export const Post = defineDocumentType(() => ({
   },
 }));
 
+export const Page = defineDocumentType(() => ({
+  name: 'Pages',
+  filePathPattern: `page-item/project-*.mdx`,
+  bodyType: 'mdx',
+  fields: {
+    title: { type: 'string', required: true },
+    summary: { type: 'string', required: true },
+    date: { type: 'date', required: true },
+    author: { type: 'string', required: true },
+    tags: { type: 'list', required: false, of: { type: 'string' } },
+  },
+}));
+
 const rehypePrettyCodeOptions = {
   theme: 'github-dark',
 };
 
 export default makeSource({
-  contentDirPath: 'posts',
-  documentTypes: [Post],
+  contentDirPath: '',
+  documentTypes: [Post, Page],
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [
