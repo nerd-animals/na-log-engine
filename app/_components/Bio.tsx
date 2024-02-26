@@ -9,7 +9,7 @@ export function getBioData() {
 export default function Bio() {
   const bio = getBioData();
 
-  const bioProfile = bio.imagePath && (
+  const bioProfile = bio?.imagePath && (
     <Image
       className="bio-profile"
       src={bio.imagePath}
@@ -18,7 +18,7 @@ export default function Bio() {
       height={200}
     />
   );
-  const bioContent = bio.body.code && (
+  const bioContent = bio?.body.code && (
     <div className="bio-content">
       <MdxComponent code={bio.body.code} />
     </div>
