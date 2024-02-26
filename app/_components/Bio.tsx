@@ -18,22 +18,22 @@ export default function Bio() {
       height={200}
     />
   );
-  const bioIntro = bio.body.code && (
-    <div className="bio-introduction">
+  const bioContent = bio.body.code && (
+    <div className="bio-content">
       <MdxComponent code={bio.body.code} />
     </div>
   );
 
-  if (bioProfile || bioIntro) {
+  if (bioProfile || bioContent) {
     return (
       <div className="bio">
         {bioProfile}
-        {bioIntro}
+        {bioContent}
       </div>
     );
   }
 
-  if (!bioProfile && !bioIntro) {
+  if (!bioProfile && !bioContent) {
     return null;
   }
 }
