@@ -19,18 +19,21 @@ export const Post = defineDocumentType(() => ({
   computedFields: {
     slug: {
       type: 'string',
-      resolve: (post) => `${post._raw.flattenedPath}`,
+      resolve: (post) => `${post._raw.flattenedPath.replace('posts/', '')}`,
     },
     categories: {
       type: 'list',
       resolve: (file) => {
-        const categories = file._raw.flattenedPath.split('/').slice(0, -1);
+        const categories = file._raw.flattenedPath
+          .replace('posts/', '')
+          .split('/')
+          .slice(0, -1);
         if (categories.length === 0) {
           throw new Error(
             'posts 안의 post에 최소 1개의 카테고리(상위 폴더)를 지정해주세요.'
           );
         }
-        if (categories.length > 4) {
+        if (categories.length > 3) {
           throw new Error(
             'post는 최대 3개의 카테고리(상위 폴더)까지 설정할 수 있습니다.'
           );
