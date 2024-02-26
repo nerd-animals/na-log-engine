@@ -24,10 +24,7 @@ export const Post = defineDocumentType(() => ({
     categories: {
       type: 'list',
       resolve: (file) => {
-        const categories = file._raw.flattenedPath
-          .replace('posts/', '')
-          .split('/')
-          .slice(0, -1);
+        const categories = file._raw.flattenedPath.split('/').slice(1, -1);
         if (categories.length === 0) {
           throw new Error(
             'posts 안의 post에 최소 1개의 카테고리(상위 폴더)를 지정해주세요.'
