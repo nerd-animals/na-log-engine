@@ -101,5 +101,4 @@ export default makeSource({
       ],
     ],
   },
-  ignoreFilePattern: /\.(md|json|gitignore|prettierrc|js|eslintrc)$/i,
 });
