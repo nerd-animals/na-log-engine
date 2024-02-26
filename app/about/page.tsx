@@ -8,7 +8,7 @@ export default function About() {
         <Section
           key={about._id}
           title={about.title}
-          sectionCode={about.body.code}
+          content={about.body.code}
         />
       ))}
     </main>

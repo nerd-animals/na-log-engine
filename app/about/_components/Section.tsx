@@ -3,16 +3,16 @@ import LineHeader from './LineHeader';
 
 export default function Section({
   title,
-  sectionCode,
+  content,
 }: {
   title: string;
-  sectionCode: string;
+  content: string;
 }) {
   return (
     <div className="about-section">
       <LineHeader title={title} />
       <div className="about-content">
-        <MdxComponent code={sectionCode} />
+        <MdxComponent code={content} />
       </div>
     </div>
   );
