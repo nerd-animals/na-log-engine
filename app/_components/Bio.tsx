@@ -7,18 +7,32 @@ export function getBioData() {
 }
 
 export default function Bio() {
-  return (
-    <div className="bio">
-      <Image
-        className="bio-profile"
-        src={allBios[0].imagePath}
-        alt="profile"
-        width={200}
-        height={200}
-      />
-      <div className="bio-introduction">
-        <MdxComponent code={allBios[0].body.code} />
-      </div>
+  const bio = getBioData();
+
+  const bioProfile = bio.imagePath && (
+    <Image
+      className="bio-profile"
+      src={bio.imagePath}
+      alt="profile"
+      width={200}
+      height={200}
+    />
+  );
+  const bioIntro = bio.body.code && (
+    <div className="bio-introduction">
+      <MdxComponent code={bio.body.code} />
     </div>
   );
+
+  let bioContent: JSX.Element | null = (
+    <div className="bio">
+      {bioProfile}
+      {bioIntro}
+    </div>
+  );
+
+  if (!bioProfile && !bioIntro) {
+    bioContent = null;
+  }
+  return bioContent;
 }
