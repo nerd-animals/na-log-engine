@@ -1,15 +1,16 @@
-import BlogSection from './_components/BlogSection';
-import IntroSection from './_components/IntroSection';
-import ProjectSection from './_components/ProjectSection';
+import { allAbouts } from 'contentlayer/generated';
+import Section from './_components/Section';
 
 export default function About() {
   return (
-    <main>
-      <div className="about-wrapper">
-        <IntroSection />
-        <BlogSection />
-        <ProjectSection />
-      </div>
+    <main className="about-wrapper">
+      {allAbouts.map((about) => (
+        <Section
+          key={about._id}
+          title={about.title}
+          content={about.body.code}
+        />
+      ))}
     </main>
   );
 }

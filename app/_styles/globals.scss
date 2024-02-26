@@ -175,12 +175,12 @@ mark {
   &-content {
     display: flex;
     flex-direction: column;
-    margin-top: 20px;
     padding: 5px;
-  }
-  &-description {
     font-size: 18px;
     word-break: keep-all;
+    & p {
+      margin: 0px 0px 3px 0px;
+    }
   }
 }
 
@@ -218,6 +218,7 @@ mark {
   margin-bottom: 10px;
 }
 .about-tech {
+  font-size: 15px;
   margin-right: 10px;
   background-color: rgb(210, 255, 120);
   border-radius: 5px;
