@@ -24,15 +24,16 @@ export default function Bio() {
     </div>
   );
 
-  let bioContent: JSX.Element | null = (
-    <div className="bio">
-      {bioProfile}
-      {bioIntro}
-    </div>
-  );
+  if (bioProfile || bioIntro) {
+    return (
+      <div className="bio">
+        {bioProfile}
+        {bioIntro}
+      </div>
+    );
+  }
 
   if (!bioProfile && !bioIntro) {
-    bioContent = null;
+    return null;
   }
-  return bioContent;
 }
