@@ -2,6 +2,10 @@ import { allBios } from 'contentlayer/generated';
 import Image from 'next/image';
 import MdxComponent from './MdxComponent';
 
+export function getBioData() {
+  return allBios[0];
+}
+
 export default function Bio() {
   return (
     <div className="bio">
