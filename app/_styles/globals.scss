@@ -177,10 +177,11 @@ mark {
     flex-direction: column;
     margin-top: 20px;
     padding: 5px;
-  }
-  &-description {
     font-size: 18px;
     word-break: keep-all;
+    & p {
+      margin: 0px 0px 5px 0px;
+    }
   }
 }
 
