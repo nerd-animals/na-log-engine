@@ -1,6 +1,5 @@
 import { allBios } from 'contentlayer/generated';
 import Image from 'next/image';
-import AboutContent from 'app/about/_components/AboutContent';
 import MdxComponent from './MdxComponent';
 
 export default function Bio() {
@@ -13,11 +12,9 @@ export default function Bio() {
         width={200}
         height={200}
       />
-      <AboutContent>
-        <div className="bio-introduction">
-          <MdxComponent code={allBios[0].body.code} />
-        </div>
-      </AboutContent>
+      <div className="bio-introduction">
+        <MdxComponent code={allBios[0].body.code} />
+      </div>
     </div>
   );
 }
