@@ -41,16 +41,27 @@ export const Post = defineDocumentType(() => ({
   },
 }));
 
-export const Page = defineDocumentType(() => ({
-  name: 'Pages',
-  filePathPattern: `page-item/project-*.mdx`,
-  bodyType: 'mdx',
+export const Bio = defineDocumentType(() => ({
+  name: 'Bio',
+  filePathPattern: `page-item/bio.mdx`,
+  contentType: 'mdx',
+  fields: {
+    imagePath: { type: 'string', required: false },
+  },
+  computedFields: {
+    slug: {
+      type: 'string',
+      resolve: (post) => `${post._raw.flattenedPath}`,
+    },
+  },
+}));
+
+export const About = defineDocumentType(() => ({
+  name: 'About',
+  filePathPattern: `page-item/about-*.mdx`,
+  contentType: 'mdx',
   fields: {
     title: { type: 'string', required: true },
-    summary: { type: 'string', required: true },
-    date: { type: 'date', required: true },
-    author: { type: 'string', required: true },
-    tags: { type: 'list', required: false, of: { type: 'string' } },
   },
 }));
 
@@ -60,7 +71,7 @@ const rehypePrettyCodeOptions = {
 
 export default makeSource({
   contentDirPath: '',
-  documentTypes: [Post, Page],
+  documentTypes: [Post, Bio, About],
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [
@@ -87,4 +98,5 @@ export default makeSource({
       ],
     ],
   },
+  ignoreFilePattern: /\.(md|json|gitignore|prettierrc|js|eslintrc)$/i,
 });
