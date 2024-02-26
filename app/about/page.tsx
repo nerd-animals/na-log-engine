@@ -5,7 +5,11 @@ export default function About() {
   return (
     <main className="about-wrapper">
       {allAbouts.map((about) => (
-        <Section title={about.title} sectionCode={about.body.code} />
+        <Section
+          key={about._id}
+          title={about.title}
+          sectionCode={about.body.code}
+        />
       ))}
     </main>
   );
