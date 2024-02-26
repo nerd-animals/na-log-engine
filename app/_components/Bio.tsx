@@ -1,19 +1,23 @@
+import { allBios } from 'contentlayer/generated';
 import Image from 'next/image';
+import AboutContent from 'app/about/_components/AboutContent';
+import MdxComponent from './MdxComponent';
 
 export default function Bio() {
   return (
     <div className="bio">
       <Image
         className="bio-profile"
-        src="/na-log/profile.png"
+        src={allBios[0].imagePath}
         alt="profile"
         width={200}
         height={200}
       />
-      <div className="bio-introduction">
-        <strong>Nerd Animals</strong>
-        <br /> <strong>No-answer</strong>를 <strong>Yes-answer</strong>로!
-      </div>
+      <AboutContent>
+        <div className="bio-introduction">
+          <MdxComponent code={allBios[0].body.code} />
+        </div>
+      </AboutContent>
     </div>
   );
 }
