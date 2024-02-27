@@ -1,5 +1,15 @@
 import Link from 'next/link';
 
+interface PostCardProps {
+  key: string;
+  slug: string;
+  categories: string[];
+  title: string;
+  summary: string;
+  tags: string[] | undefined;
+  date: string;
+}
+
 export default function PostCard({
   key,
   slug,
@@ -8,15 +18,7 @@ export default function PostCard({
   summary,
   tags,
   date,
-}: {
-  key: string;
-  slug: string;
-  categories: string[];
-  title: string;
-  summary: string;
-  tags: string[] | undefined;
-  date: string;
-}) {
+}: PostCardProps) {
   return (
     <Link className="post-card" href={`/post/${slug}`} key={key}>
       <div className="post-card-category">
