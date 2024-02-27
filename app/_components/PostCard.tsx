@@ -1,37 +1,48 @@
 import Link from 'next/link';
-import { allPosts } from 'contentlayer/generated';
 
-export default function PostCard() {
+export default function PostCard({
+  key,
+  slug,
+  categories,
+  title,
+  summary,
+  tags,
+  date,
+}: {
+  key: string;
+  slug: string;
+  categories: string[];
+  title: string;
+  summary: string;
+  tags: string[] | undefined;
+  date: string;
+}) {
   return (
-    <div className="post-card-wrapper">
-      {allPosts.map((post) => (
-        <Link className="post-card" href={`/post/${post.slug}`} key={post._id}>
-          <div className="post-card-category">
-            {post.categories[post.categories.length - 1]}
-          </div>
-          <div className="post-card-title">{post.title}</div>
-          <div className="post-card-summary">{post.summary}</div>
-          <div className="post-card-info">
-            <div className="post-card-tags">
-              {post.tags
-                ? post.tags.map((tag) => (
-                    <div className="post-card-tag" key={tag}>
-                      {tag}
-                    </div>
-                  ))
-                : null}
-            </div>
-            <div className="post-card-date">
-              {new Date(post.date).toLocaleDateString('en-us', {
-                year: 'numeric',
-                month: 'long',
-                day: '2-digit',
-                weekday: 'short',
-              })}
-            </div>
-          </div>
-        </Link>
-      ))}
-    </div>
+    <Link className="post-card" href={`/post/${slug}`} key={key}>
+      <div className="post-card-category">
+        {categories[categories.length - 1]}
+      </div>
+      <div className="post-card-title">{title}</div>
+      <div className="post-card-summary">{summary}</div>
+      <div className="post-card-info">
+        <div className="post-card-tags">
+          {tags
+            ? tags.map((tag) => (
+                <div className="post-card-tag" key={tag}>
+                  {tag}
+                </div>
+              ))
+            : null}
+        </div>
+        <div className="post-card-date">
+          {new Date(date).toLocaleDateString('en-us', {
+            year: 'numeric',
+            month: 'long',
+            day: '2-digit',
+            weekday: 'short',
+          })}
+        </div>
+      </div>
+    </Link>
   );
 }
