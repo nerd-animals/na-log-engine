@@ -6,10 +6,26 @@ import './_styles/globals.scss';
 
 const inter = Inter({ subsets: ['latin'] });
 
-export const metadata: Metadata = {
-  title: 'na-log',
-  description: '비전공자 개발자들의 no-answer를 yes-answer로 바꿔가는 기록',
-};
+const githubRepository = process.env.GITHUB_REPOSITORY || '';
+const githubOwner = githubRepository.split('/')[0];
+const githubRepo = githubRepository.split('/')[1];
+const basePath =
+  githubRepo === `${githubOwner}.github.io` ? '/' : `/${githubRepo}`;
+
+export async function generateMetadata(): Promise<Metadata> {
+  const fetchPath =
+    process.env.NODE_ENV === 'development'
+      ? `http://localhost:3000${basePath}`
+      : `https://${githubOwner}.github.io${basePath}`;
+
+  const res = await fetch(`${fetchPath}/config.json`);
+  const config = await res.json();
+
+  return {
+    title: config.title,
+    description: config.description,
+  };
+}
 
 export default function RootLayout({
   children,
