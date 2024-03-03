@@ -1,17 +1,31 @@
 import { useMDXComponent } from 'next-contentlayer/hooks';
 import Image from 'next/image';
+import getConfig from 'next/config';
+
+const { publicRuntimeConfig } = getConfig();
 
 interface MDXProps {
   code: string;
 }
 
-const components = {
-  img: (props: any) => (
+interface ImgProps {
+  src: string;
+  alt: string;
+}
+
+const component = {
+  img: (props: ImgProps) => (
     <Image
-      src={props.src}
-      alt={props.alt || ''}
-      width={props.width || 200}
-      height={props.height || 200}
+      src={
+        props.src.startsWith('http')
+          ? props.src
+          : `${publicRuntimeConfig.basePath}/${props.src}`
+      }
+      alt={props.alt}
+      width={0}
+      height={0}
+      sizes="100vw"
+      style={{ width: '50%', height: 'auto' }}
     />
   ),
 };
@@ -19,5 +33,6 @@ const components = {
 export default function MdxComponent(props: MDXProps) {
   const { code } = props;
   const MDX = useMDXComponent(code);
-  return <MDX components={components} />;
+  // @ts-ignore
+  return <MDX components={component} />;
 }

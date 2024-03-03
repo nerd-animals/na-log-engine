@@ -22,7 +22,6 @@ date: 2024-3-3
 ```
 
 게시글에서 `public`에 있는 이미지를 사용하고 싶다면, `public/`을 기본 경로라고 생각하시면 됩니다.
-
 예를 들어, 아래와 같이 `public/crazy-gugu.jpg`가 있다고 가정하겠습니다.
 
 ```bash
@@ -35,44 +34,44 @@ date: 2024-3-3
 ### 1. Markdown 문법 사용하기
 
 NA-Log는 Github-Flavored-Markdown 문법을 지원합니다. \
-따라서, 아래와 같이 사용할 수 있습니다.
+따라서, 아래와 같이 사용할 수 있습니다. 
 
+#### Public 폴더 내에 있는 이미지 사용
 ```bash
 ![비둘기?](/crazy-gugu.jpg)
+![비둘기?](crazy-gugu.jpg) # /가 없어도 잘 첨부됩니다!
 ```
 
 ![비둘기?](/crazy-gugu.jpg)
 
 ![비둘기?](crazy-gugu.jpg)
 
----- 
+#### Web에 있는 이미지 사용
+```bash
+# web에 있는 이미지를 사용할 때,
+![비둘기?](https://github.com/nerd-animals/na-log/assets/56672129/ad8d1f15-9b4e-456f-afc1-bb922faf1e9d)
+```
+![비둘기?](https://github.com/nerd-animals/na-log/assets/56672129/ad8d1f15-9b4e-456f-afc1-bb922faf1e9d)
 
-### 2. HTML 태그 사용하기
+### 2. HTML 태그 사용하기 (비권장 😥) 
 
-GFM에서 HTML 태그를 사용할 수 있습니다. \
-따라서, `img`태그를 사용한 이미지 첨부가 가능합니다.
+GFM에서 HTML 태그를 사용할 수 있으므로 `img`태그를 사용한 이미지 첨부가 가능합니다.
+이미지 경로에 `basePath`를 적용해주어야 하는데, HTML 태그로 입력할 경우 처리가 안 됩니다.
+
+그러나 세부 옵션을 조정하려면, HTML 태그를 사용해야 합니다.
+HTML 태그를 사용할 경우, basePath를 직접 추가해주세요!
+basePath는 본인의 블로그 링크에서 확인해주시면 됩니다.
+`<Github Owner>.github.io/<basePath>`
 
 ```bash
-<img src="crazy-gugu.jpg" alt="비둘기?" />
+<img src="/na-log/crazy-gugu.jpg" alt="비둘기?" />
 ```
 
-<img src="crazy-gugu.jpg" alt="비둘기?" />
-
-<img src="/crazy-gugu.jpg" alt="비둘기?" />
-
-HTML 태그를 사용하면, 세부 옵션을 조정할 수 있습니다. \
-세부 옵션을 조정하고 싶으시다면, HTML 태그를 확인해보시기 바랍니다!
-
-```bash
-<img src="/crazy-gugu.jpg" alt="비둘기?" width="30%" />
-```
-
-<img src="/crazy-gugu.jpg" alt="비둘기!!!" width="30%" />
+<img src="/na-log/crazy-gugu.jpg" alt="비둘기?" />
 
 ----
 
 NA-Log에서 이미지를 첨부하는 방법에 대해 소개해드렸습니다.
-
 문의 사항이 있으시다면, 댓글 남겨주세요! 👍
 
 감사합니다 :) 🦝
