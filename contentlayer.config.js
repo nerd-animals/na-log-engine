@@ -102,7 +102,6 @@ export default makeSource({
           rel: ['noopener noreferrer'],
         },
       ],
-      [rehypeImgSize, { dir: 'public' }],
     ],
   },
 });
