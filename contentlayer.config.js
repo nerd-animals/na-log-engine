@@ -4,7 +4,6 @@ import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
 import rehypePrettyCode from 'rehype-pretty-code';
 import rehypeExternalLinks from 'rehype-external-links';
-import rehypeImgSize from 'rehype-img-size';
 
 export const Post = defineDocumentType(() => {
   const postPath = 'posts';
