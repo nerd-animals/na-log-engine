@@ -1,0 +1,74 @@
+---
+title: 'Image in NA-Log'
+summary: 'NA-Log에서 Image를 첨부하는 방법입니다.'
+author: 'raccoon'
+tags: ['na-log', 'image']
+date: 2024-3-3
+---
+
+### 안녕하세요, Nerd-Animals의 raccoon입니다 🦝
+
+이번 포스팅에서는 **NA-Log에서 Image 사용 방법**에 대해 알려드리겠습니다.
+
+----
+
+### 전반적인 folder 구조는 다음과 같습니다.
+
+```bash
+--| .github/
+--| na-log-engine/ <--- submodule로 저희가 개발/유지보수하는 NA-Log 엔진입니다.
+--| posts/  <--- 사용자의 게시글이 저장되는 공간입니다. 게시글은 `mdx` 확장자입니다.
+--| public/ <--- 게시글 외, 자원을 저장하는 공간입니다. 이 곳에 이미지를 저장하면 됩니다.
+```
+
+게시글에서 `public`에 있는 이미지를 사용하고 싶다면, `public/`을 기본 경로라고 생각하시면 됩니다.
+
+예를 들어, 아래와 같이 `public/crazy-gugu.jpg`가 있다고 가정하겠습니다.
+
+```bash
+--| public/
+----| crazy-gugu.jpg
+```
+
+---- 
+
+### 1. Markdown 문법 사용하기
+
+NA-Log는 Github-Flavored-Markdown 문법을 지원합니다. \
+따라서, 아래와 같이 사용할 수 있습니다.
+
+```bash
+![비둘기?](/crazy-gugu.jpg)
+```
+
+![비둘기?](/crazy-gugu.jpg)
+
+---- 
+
+### 2. HTML 태그 사용하기
+
+GFM에서 HTML 태그를 사용할 수 있습니다. \
+따라서, `img`태그를 사용한 이미지 첨부가 가능합니다.
+
+```bash
+<img src="/crazy-gugu.jpg" alt="비둘기?" />
+```
+
+<img src="/crazy-gugu.jpg" alt="비둘기?" />
+
+HTML 태그를 사용하면, 세부 옵션을 조정할 수 있습니다. \
+세부 옵션을 조정하고 싶으시다면, HTML 태그를 확인해보시기 바랍니다!
+
+```bash
+<img src="/crazy-gugu.jpg" alt="비둘기?" width="30%" />
+```
+
+<img src="/crazy-gugu.jpg" alt="비둘기?" width="30%" />
+
+----
+
+NA-Log에서 이미지를 첨부하는 방법에 대해 소개해드렸습니다.
+
+문의 사항이 있으시다면, 댓글 남겨주세요! 👍
+
+감사합니다 :) 🦝
