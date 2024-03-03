@@ -22,6 +22,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+
+  publicRuntimeConfig: { basePath: getBasePath() },
 };
 
 module.exports = withContentlayer(nextConfig);
