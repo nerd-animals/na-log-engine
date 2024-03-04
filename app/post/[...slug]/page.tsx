@@ -1,6 +1,7 @@
 import { allPosts } from 'contentlayer/generated';
 import { notFound } from 'next/navigation';
 import MdxComponent from '../../_components/MdxComponent';
+import Comment from '../../_components/Comment';
 import '../../_styles/mdx.scss';
 
 export function generateStaticParams() {
@@ -55,6 +56,7 @@ export default function Post({ params }: { params: { slug: string[] } }) {
         ✍️ written by <strong>{post.author}</strong>
       </div>
       <MdxComponent code={post.body.code} />
+      <Comment />
     </div>
   );
 }

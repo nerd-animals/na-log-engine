@@ -1,0 +1,29 @@
+'use client';
+
+import config from 'public/config.json';
+import { useEffect, useRef } from 'react';
+
+function getScript() {
+  const giscusConfig = config.giscus;
+  const scriptElem = document.createElement('script');
+  const keys = Object.keys(giscusConfig);
+  const values = Object.values(giscusConfig);
+  for (let i = 0; i < keys.length; i += 1) {
+    scriptElem.setAttribute(keys[i], values[i].toString());
+  }
+
+  return scriptElem;
+}
+
+const giscusScript = getScript();
+
+export default function Giscus() {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!ref.current || ref.current.hasChildNodes()) return;
+    ref.current.appendChild(giscusScript);
+  }, []);
+
+  return <section ref={ref} />;
+}
