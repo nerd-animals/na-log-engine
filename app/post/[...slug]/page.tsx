@@ -9,7 +9,8 @@ export function generateStaticParams() {
     return { slug: parts };
   });
 
-  return paths.push({ slug: ['not-found'] });
+  paths.push({ slug: ['not-found'] });
+  return paths;
 }
 
 function getPost(slug: string) {
