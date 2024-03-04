@@ -4,10 +4,12 @@ import MdxComponent from '../../_components/MdxComponent';
 import '../../_styles/mdx.scss';
 
 export function generateStaticParams() {
-  return allPosts.map((post) => {
+  const paths = allPosts.map((post) => {
     const parts = post.slug.split('/').filter((part) => part !== '');
     return { slug: parts };
   });
+
+  return paths.push({ slug: ['not-found'] });
 }
 
 function getPost(slug: string) {
