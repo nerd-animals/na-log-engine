@@ -6,17 +6,26 @@ mark {
 
 @font-face {
   font-family: 'ALfont';
-  src: url('/fonts/mainfont.woff2') format('woff2');
+  src:
+    url('/fonts/mainfont.woff2') format('woff2'),
+    url('/fonts/mainfont.woff') format('woff'),
+    url('/fonts/mainfont.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'KRfont';
-  src: url('/fonts/mainfontKR.woff2') format('woff2');
+  src:
+    url('/fonts/mainfontKR.woff2') format('woff2'),
+    url('/fonts/mainfontKR.woff') format('woff'),
+    url('/fonts/mainfontKR.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'ENfont';
-  src: url('/fonts/mainfontEN.ttf') format('truetype');
+  src:
+    url('/fonts/mainfontEN.woff2') format('woff2'),
+    url('/fonts/mainfontEN.woff') format('woff'),
+    url('/fonts/mainfontEN.ttf') format('truetype');
   unicode-range: U+0041-005A, U+0061-007A;
 }
 
