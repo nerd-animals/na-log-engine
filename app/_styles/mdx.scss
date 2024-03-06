@@ -113,13 +113,13 @@
   figure {
     margin-inline-start: 0px;
     width: 100%;
-    border-radius: 30px;
     & pre {
       border-radius: 10px;
       line-height: 23px;
       & > code {
         background-color: #282828;
         padding: 0.5rem 1rem;
+        overflow-x: auto;
       }
     }
   }
