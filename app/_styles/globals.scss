@@ -4,6 +4,25 @@ mark {
   border-radius: 5px;
 }
 
+@font-face {
+  font-family: 'ALfont';
+  src: url('/fonts/mainfont.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'KRfont';
+  src: url('/fonts/mainfontKR.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'ENfont';
+  src: url('/fonts/mainfontEN.ttf') format('truetype');
+  unicode-range: U+0041-005A, U+0061-007A;
+}
+
+body {
+  font-family: ENfont, KRfont, ALfont;
+}
 // page style
 .page-wrapper {
   text-align: justify;
