@@ -1,3 +1,7 @@
+@font-face {
+  font-family: 'codefont';
+  src: url('/public/fonts/codefont.woff2') format('woff2');
+}
 .post-wrapper {
   font-size: 17px;
 
@@ -23,6 +27,7 @@
     padding: 1px 4px;
     border-radius: 5px;
     color: tomato;
+    font-family: codefont;
   }
 
   // 표
@@ -108,14 +113,13 @@
   figure {
     margin-inline-start: 0px;
     width: 100%;
-    border-radius: 30px;
     & pre {
       border-radius: 10px;
-      font-size: 16px;
       line-height: 23px;
       & > code {
         background-color: #282828;
         padding: 0.5rem 1rem;
+        overflow-x: auto;
       }
     }
   }
