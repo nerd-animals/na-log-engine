@@ -1,18 +1,20 @@
-# 🐾 Na-Log 🐾
+# 🦺 Na-Log-Engine 🦺
 
-> **No-Answer**를 **Yes-Answer**로!
+> **git-blog**를 **손쉽고 빠르게** 만들어보자!
 
 ## 🎉 Introduction
 
 안녕하세요! 😀
 
-Na-Log는, Raccoon과 Otter가 함께 만드는 Tech git-blog입니다. \
-저희들의 성장 과정을 기록할 수 있도록 블로그 운영을 고려하게 되었고, \
-개발 역량을 향상시키기 위해 상용 플랫폼이 아닌, **자체 개발**을 하게 되었습니다! 😊
+Na-Log-Engine은, Raccoon과 Otter가 함께 만드는 Tech git-blog의 **구현부**입니다.🛠️ \
+저희만의 팀블로그를 운영하면서 다른 개발자분들도 간편하게 git-blog를 만들 수 있게 배포하고 싶었습니다. \
+따라서 해당 Engine을 포스팅 업로드 및 커스텀 repo에서 **submodule**로 사용할 수 있게 개발 중입니다.🧑🏻‍💻 \
+[(🚀 'Na-Log 커스텀 repo' 바로가기)](https://github.com/nerd-animals/na-log)
 
 저희들의 성장 과정 그리고 git-blog에 관심이 있으신 분들은 아래 링크로 확인해주세요!
 
-[🚀 Na-Log 바로가기](https://nerd-animals.github.io/na-log/)
+[🪧 'Na-Log' demo ver. 바로가기](https://nerd-animals.github.io/na-log-engine/)
+🚧 ⬆️ 사용법 포스팅 예정 🚧
 
 ## 🦝 About Us 🦦
 
@@ -38,20 +40,6 @@ Na-Log 개발에는 아래와 같은 기술 스택이 사용되었습니다! �
 | Package Manager  |                           Yarn                            | 1.22.21 |
 |      CI/CD       |             GitHub Actions <br> GitHub Pages              |         |
 | Project Managing | GitHub Projects <br> GitHub MileStones <br> GitHub Issues |         |
-
-## 🧰 Extension
-
-Na-log를 사용하려면 아래와 같은 extension이 필요합니다. 💡
-
-### [📷Paste image](https://marketplace.visualstudio.com/items?itemName=mushan.vscode-paste-image)
-
-글 포스팅을 할 때, 그림 파일을 일일이 가져와서 저장하는 것이 번거로워 해당 extension을 사용하기로 했습니다.
-
-1. Vscode **paste image** extension을 local에 다운받습니다.
-2. 이미지 복사 후 mdx 파일에 Ctrl+Alt+V(command+option+V `on Mac`)를 합니다.
-
-- 이미지 **파일** 복사 불가(이미지 **자체**를 우클릭하여 복사해야합니다.)
-- **gif** 파일 불가
 
 ## 📌 Develop Rule
 
@@ -154,7 +142,7 @@ PR 작성부터 Merge되기까지 다음과 같은 규칙을 지켜야합니다.
 
 ## 👀 Contact Us
 
-Na-Log 관련된 소통을 원하신다면, [GitHub Issues](https://github.com/nerd-animals/na-log/issues/new/choose)를 활용해주세요! 😁
+Na-Log Engine 관련된 소통을 원하신다면, [GitHub Issues](https://github.com/nerd-animals/na-log-engine/issues/new/choose)를 활용해주세요! 😁
 
 - 🐛 Bug Report
 - 📃 Suggestion
