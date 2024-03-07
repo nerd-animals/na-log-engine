@@ -2,6 +2,7 @@
   "title": "HOME",
   "description": "my blog",
   "giscus": {
+    "active": true,
     "src": "https://giscus.app/client.js",
     "data-repo": "nerd-animals/na-log-engine",
     "data-repo-id": "R_kgDOLRSLmA",

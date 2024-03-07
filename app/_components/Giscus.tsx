@@ -9,9 +9,11 @@ function getScript() {
   const keys = Object.keys(giscusConfig);
   const values = Object.values(giscusConfig);
   for (let i = 0; i < keys.length; i += 1) {
-    scriptElem.setAttribute(keys[i], values[i].toString());
+    if (keys[i] !== 'active') {
+      scriptElem.setAttribute(keys[i], values[i].toString());
+    }
   }
-
+  console.log(scriptElem);
   return scriptElem;
 }
 
@@ -23,5 +25,5 @@ export default function Giscus() {
     ref.current.appendChild(getScript());
   }, []);
 
-  return <section ref={ref} />;
+  return config.giscus.active ? <section ref={ref} /> : undefined;
 }
