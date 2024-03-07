@@ -13,7 +13,6 @@ function getScript() {
       scriptElem.setAttribute(keys[i], values[i].toString());
     }
   }
-  console.log(scriptElem);
   return scriptElem;
 }
 
