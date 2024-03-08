@@ -4,7 +4,6 @@ import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
 import rehypePrettyCode from 'rehype-pretty-code';
 import rehypeExternalLinks from 'rehype-external-links';
-import remarkBreaks from 'remark-breaks';
 
 export const Post = defineDocumentType(() => {
   const postPath = 'posts';
@@ -79,7 +78,7 @@ export default makeSource({
   contentDirPath: '',
   documentTypes: [Post, Bio, About],
   mdx: {
-    remarkPlugins: [remarkBreaks, remarkGfm],
+    remarkPlugins: [remarkGfm],
     rehypePlugins: [
       rehypeSlug,
       [rehypePrettyCode, rehypePrettyCodeOptions],
