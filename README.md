@@ -1,18 +1,21 @@
-# 🐾 Na-Log 🐾
+# 🚀 Na-Log-Engine
 
-> **No-Answer**를 **Yes-Answer**로!
+> **git-blog**를 **손쉽고 빠르게** 만들어보자!
 
 ## 🎉 Introduction
 
 안녕하세요! 😀
 
-Na-Log는, Raccoon과 Otter가 함께 만드는 Tech git-blog입니다. \
-저희들의 성장 과정을 기록할 수 있도록 블로그 운영을 고려하게 되었고, \
-개발 역량을 향상시키기 위해 상용 플랫폼이 아닌, **자체 개발**을 하게 되었습니다! 😊
+Na-Log-Engine은, Raccoon과 Otter가 함께 만드는 Tech git-blog의 **Engine**입니다.🛠️ \
+저희가 만든 na-log-engine은 **누구나** 사용하실 수 있도록 배포하고 있습니다 👍 \
+아래는 engine의 사용법이 포함된 demo site입니다! na-log에 관심 있으신 분들은 아래 링크를 확인해주세요.
 
-저희들의 성장 과정 그리고 git-blog에 관심이 있으신 분들은 아래 링크로 확인해주세요!
+[🪧 'Na-Log' demo ver. 바로가기](https://nerd-animals.github.io/na-log-engine/)
 
-[🚀 Na-Log 바로가기](https://nerd-animals.github.io/na-log/)
+그리고 해당 engine으로 만든 저희의 팀 블로그입니다. \
+블로그에 성장 과정을 포함하여 포스팅하고 있으니 구경해보세요! 😊
+
+[🚀 na-log-engine으로 만든 블로그 바로가기](https://github.com/nerd-animals/na-log)
 
 ## 🦝 About Us 🦦
 
@@ -30,28 +33,14 @@ Na-Log는, Raccoon과 Otter가 함께 만드는 Tech git-blog입니다. \
 
 Na-Log 개발에는 아래와 같은 기술 스택이 사용되었습니다! 💪
 
-|    Tech Stack    |                           Used                            | version |
-| :--------------: | :-------------------------------------------------------: | :-----: |
-|     Language     |                        TypeScript                         |  5.3.3  |
-|    FrameWork     |                          Next.js                          | 14.1.0  |
-|     Library      |                           React                           | 18.2.0  |
-| Package Manager  |                           Yarn                            | 1.22.21 |
-|      CI/CD       |             GitHub Actions <br> GitHub Pages              |         |
-| Project Managing | GitHub Projects <br> GitHub MileStones <br> GitHub Issues |         |
-
-## 🧰 Extension
-
-Na-log를 사용하려면 아래와 같은 extension이 필요합니다. 💡
-
-### [📷Paste image](https://marketplace.visualstudio.com/items?itemName=mushan.vscode-paste-image)
-
-글 포스팅을 할 때, 그림 파일을 일일이 가져와서 저장하는 것이 번거로워 해당 extension을 사용하기로 했습니다.
-
-1. Vscode **paste image** extension을 local에 다운받습니다.
-2. 이미지 복사 후 mdx 파일에 Ctrl+Alt+V(command+option+V `on Mac`)를 합니다.
-
-- 이미지 **파일** 복사 불가(이미지 **자체**를 우클릭하여 복사해야합니다.)
-- **gif** 파일 불가
+|    Tech Stack    |               Used               | version |
+| :--------------: | :------------------------------: | :-----: |
+|     Language     |            TypeScript            |  5.3.3  |
+|    FrameWork     |             Next.js              | 14.1.0  |
+|     Library      |              React               | 18.2.0  |
+| Package Manager  |               Yarn               | 1.22.21 |
+|      CI/CD       | GitHub Actions <br> GitHub Pages |         |
+| Project Managing |         GitHub Projects          |         |
 
 ## 📌 Develop Rule
 
@@ -73,7 +62,7 @@ Na-log를 사용하려면 아래와 같은 extension이 필요합니다. 💡
   - Self-Review는 30분을 넘지 않는 것을 목표로 합니다.
   - Self-Review 후, 기존 Sprint 종료와 동시에 새로운 Sprint를 재시작합니다.
 
-#### GitHub Project & MileStone
+#### GitHub Project
 
 프로젝트 관리의 최소 단위는 GitHub Issue입니다. \
 Issue는 최대한 작은 단위로 작성하여 협업에 어려움이 없도록 합니다.
@@ -85,8 +74,6 @@ GitHub Project를 통해 전체적인 프로젝트 상황을 확인합니다.
 - In Progress : 현재 작업 중인 isses
 - On Review : 작업은 완료되었으나, Review 중인 issue
 - Done : 완료된 issue
-
-또한, GitHub MileStone을 통해 Sprint를 관리합니다.
 
 ### Commit Message Convention
 
@@ -124,27 +111,35 @@ branch naming rule은 다음과 같습니다.
 - 예시 : feature/create-404-page
 
 개발 중에는 수시로 원격 저장소에 push합니다. \
-개발이 완료될 경우, PR & Review 과정을 통해 `main` branch로 병합됩니다. \
+개발이 완료될 경우, PR & Review 과정을 통해 `develop` branch로 병합됩니다. \
 merge된 후, 해당 branch는 삭제하도록 합니다.
+
+#### `develop` Branch
+
+`work` branch가 합쳐지는 branch입니다. \
+개발한 내용을 Test 및 검증하는 단계입니다. gh-pages는 `develop`의 결과를 배포하여 실제로 어떻게 동작하는지 검증할 수 있습니다. \
+안정된 버젼은 `main` Branch로 병합됩니다.
+
+- CI : `work`->`develop` PR 작성 시, Unit Test 및 Build Test 수행 (현재 미수행)
+- CD : `work`->`develop` merge 시, `develop`->`gh-pages` build 결과물 배포
 
 #### `main` Branch
 
-`work` branch가 합쳐지는 branch입니다. \
-Git Actions를 통한 CI/CD가 원활히 진행될 수 있도록 중간 역할을 합니다.
-
-- CI : `work`->`main` PR 작성 시, Unit Test 및 Build Test 수행 (현재 미수행)
-- CD : `work`->`main` merge 시, `main`->`gh-pages` build 결과물 배포
+`develop` branch가 합쳐지는 branch입니다. \
+`develop`에서 안정성이 확인된 변경점을 배포하는 브랜치입니다. \
+최종 유저가 사용할 Branch입니다.
 
 #### `gh-pages` Branch
 
 GitHub Pages에 의해 배포되는 대상입니다. \
-`main`에 의해 gh-pages branch로 새로운 변경점이 발생할 경우, GitHub Pages에 의해 정의된 Git Actions CD 과정이 수행됩니다.
+`develop`에 의해 gh-pages branch로 새로운 변경점이 발생할 경우, GitHub Pages에 의해 정의된 Git Actions CD 과정이 수행됩니다.
 
 #### Pull Request & Code Review
 
-변경점을 `main` branch에 적용하기 위한 과정입니다. \
+변경점이 branch에 적용하기 위한 과정입니다. \
 PR 작성부터 Merge되기까지 다음과 같은 규칙을 지켜야합니다.
 
+- 개별 변경점은 `develop` Branch에 병합되고, 배포 가능한 상태일 때 `develop`에서 `main`으로 병합된다.
 - PR 작성 시, Template에 따라 최대한 자세히 작성합니다.
 - PR 제목에는 Gitmoji를 사용하여 PR 유형을 표현합니다. (사용 가능한 Gitmoji는 `PR 유형`에 정의되어 있습니다.)
 - PR 제목 예시) 📝 create README.md
@@ -154,7 +149,7 @@ PR 작성부터 Merge되기까지 다음과 같은 규칙을 지켜야합니다.
 
 ## 👀 Contact Us
 
-Na-Log 관련된 소통을 원하신다면, [GitHub Issues](https://github.com/nerd-animals/na-log/issues/new/choose)를 활용해주세요! 😁
+Na-Log Engine 관련된 소통을 원하신다면, [GitHub Issues](https://github.com/nerd-animals/na-log-engine/issues/new/choose)를 활용해주세요! 😁
 
 - 🐛 Bug Report
 - 📃 Suggestion
