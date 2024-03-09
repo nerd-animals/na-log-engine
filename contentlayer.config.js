@@ -7,7 +7,7 @@ import rehypeExternalLinks from 'rehype-external-links';
 import remarkBreaks from 'remark-breaks';
 
 export const Post = defineDocumentType(() => {
-  const postPath = 'posts';
+  const postPath = 'post';
 
   return {
     name: 'Posts',
