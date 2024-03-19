@@ -1,3 +1,5 @@
+@use './mixins' as *;
+
 // common style
 mark {
   background: linear-gradient(to top, rgb(176, 238, 50) 50%, transparent 50%);
@@ -34,15 +36,15 @@ body {
 }
 // page style
 .page-wrapper {
-  text-align: justify;
+  max-width: 100%;
   position: relative;
-  padding: 30px;
+  padding: 20px;
 }
 
 // header style
 .page-header-wrapper {
   display: flex;
-  height: 60px;
+  height: 0 auto;
   justify-content: center;
   margin-bottom: 50px;
 }
@@ -53,7 +55,6 @@ body {
   vertical-align: center;
   font-size: 20px;
   padding: 20px 20px 30px 20px;
-
   font-weight: 600;
   max-width: 800px;
   width: 100%;
@@ -72,11 +73,16 @@ body {
 }
 
 // footer style
+.footer-wrapper {
+  margin: 0 auto;
+  max-width: 800px;
+}
 .page-footer {
   font-size: 15px;
   font-weight: 500;
   padding: 20px;
   text-align: center;
+  width: 100%;
 }
 
 // bio style
@@ -85,7 +91,9 @@ body {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  height: 200px;
+  height: auto;
+  max-width: 800px;
+  margin: 0px auto;
 
   &-profile {
     border-radius: 50%;
@@ -103,12 +111,14 @@ body {
   align-items: center;
   padding: 20px;
   flex-direction: column;
+  max-width: 800px;
+  margin: 0px auto;
 }
 .post-card {
   display: flex;
   flex-direction: column;
   height: 130px;
-  width: 800px;
+  width: 100%;
   border: 1px solid;
   border-radius: 10px;
   padding: 15px;
@@ -174,7 +184,7 @@ body {
   flex-direction: column;
   justify-content: center;
   margin: 0px auto;
-  width: 800px;
+  max-width: 800px;
 }
 
 .line-header {
@@ -263,8 +273,9 @@ body {
 .post {
   &-wrapper {
     margin: 0px auto;
-    width: 800px;
+    max-width: 800px;
   }
+
   &-category {
     font-size: 1.5em;
     font-weight: 600;
