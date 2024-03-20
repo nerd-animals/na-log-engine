@@ -82,11 +82,19 @@ body {
   max-width: 800px;
 }
 .page-footer {
-  font-size: 15px;
+  font-size: 1.125rem;
   font-weight: 500;
   padding: 20px;
   text-align: center;
   width: 100%;
+
+  @include xs {
+    font-size: 0.8125rem;
+  }
+
+  @include md {
+    font-size: 0.9375rem;
+  }
 }
 
 // bio style
@@ -104,7 +112,30 @@ body {
     margin-right: 30px;
   }
   &-content {
-    font-size: 25px;
+    font-size: 1.5625rem;
+  }
+
+  @include xs {
+    flex-direction: column;
+
+    &-profile {
+      width: 130px;
+      height: 130px;
+    }
+
+    &-content {
+      font-size: 1.25rem;
+    }
+  }
+
+  @include md {
+    &-profile {
+      width: 150px;
+      height: 150px;
+    }
+    &-content {
+      font-size: 1.375rem;
+    }
   }
 }
 
@@ -295,11 +326,24 @@ body {
     & strong {
       color: black;
     }
+    @include xs {
+      font-size: 0.8125rem;
+    }
+    @include md {
+      font-size: 0.9375rem;
+    }
   }
   &-info {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     margin: 10px 0 0 0;
+    @include xs {
+      font-size: 0.8125rem;
+    }
+    @include md {
+      font-size: 0.9375rem;
+    }
   }
   &-date {
     color: gray;
@@ -309,6 +353,7 @@ body {
   &-tags {
     font-weight: bold;
     display: flex;
+    align-items: center;
   }
   &-tag {
     background-color: lightgray;
