@@ -142,21 +142,20 @@ body {
 .post-card-wrapper {
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding: 20px;
-  flex-direction: column;
-  max-width: 800px;
   margin: 0px auto;
+  width: 100%;
+  min-height: 130px;
 }
 .post-card {
   display: flex;
   flex-direction: column;
-  height: 130px;
+  max-width: 800px;
+  height: 100%;
   width: 100%;
   border: 1px solid;
   border-radius: 10px;
   padding: 15px;
-  margin: 15px;
+  margin-bottom: 10px;
   overflow: hidden;
   cursor: pointer;
   text-decoration: none;
@@ -187,6 +186,7 @@ body {
     -webkit-box-orient: vertical;
     overflow: hidden;
     word-break: break-word;
+    padding-bottom: 30px;
   }
   &-info {
     display: flex;
@@ -202,6 +202,7 @@ body {
     display: flex;
     margin: 3px;
     font-weight: 600;
+    text-align: center;
   }
   &-tag {
     font-size: 0.75rem;
