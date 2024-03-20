@@ -1,6 +1,10 @@
 @use './mixins' as *;
 
 // common style
+html {
+  font-size: 16px;
+}
+
 mark {
   background: linear-gradient(to top, rgb(176, 238, 50) 50%, transparent 50%);
   border-radius: 5px;
