@@ -3,8 +3,6 @@
   src: url('/public/fonts/codefont.woff2') format('woff2');
 }
 .post-wrapper {
-  font-size: 17px;
-
   // 콜아웃
   aside {
     background-color: #f0f0f0;
@@ -120,6 +118,7 @@
         background-color: #282828;
         padding: 0.5rem 1rem;
         overflow-x: auto;
+        font-size: 14px;
       }
     }
   }
@@ -128,5 +127,6 @@
   img {
     display: block;
     margin: 0 auto;
+    max-width: 100%;
   }
 }
