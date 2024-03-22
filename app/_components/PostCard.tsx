@@ -29,7 +29,7 @@ export default function PostCard({
       <div className="post-card-info">
         <div className="post-card-tags">
           {tags
-            ? tags.map((tag) => (
+            ? tags.slice(0, 3).map((tag) => (
                 <div className="post-card-tag" key={tag}>
                   {tag}
                 </div>
