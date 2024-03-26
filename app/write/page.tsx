@@ -1,10 +1,10 @@
 'use client';
 
 import { useState } from 'react';
-import PostDisplay from 'app/_components/PostDisplay';
+import PostDisplay, { Post } from 'app/_components/PostDisplay';
 
 export default function Write() {
-  const [post, setPost] = useState({
+  const [post, setPost] = useState<Post>({
     title: '',
     author: '',
     tags: '',
@@ -12,7 +12,9 @@ export default function Write() {
     content: '',
   });
 
-  const onChangeInputPost = (e: any) => {
+  const onChangeInputPost = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setPost((prevState) => ({
       ...prevState,
       [e.target.className]: e.target.value,
