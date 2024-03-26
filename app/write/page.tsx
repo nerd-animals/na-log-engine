@@ -23,10 +23,30 @@ export default function Write() {
     <div className="write-wrapper">
       <div className="write-editor">
         <div className="front-matter">
-          <input className="title" type="text" onChange={onChangeInputPost} />
-          <input className="tags" type="text" onChange={onChangeInputPost} />
-          <input className="date" type="date" onChange={onChangeInputPost} />
-          <input className="author" type="text" onChange={onChangeInputPost} />
+          <input
+            className="title"
+            type="text"
+            placeholder="제목을 입력해주세요"
+            onChange={onChangeInputPost}
+          />
+          <input
+            className="tags"
+            type="text"
+            placeholder="태그를 입력해주세요"
+            onChange={onChangeInputPost}
+          />
+          <input
+            className="date"
+            type="date"
+            required
+            onChange={onChangeInputPost}
+          />
+          <input
+            className="author"
+            type="text"
+            placeholder="글쓴이를 입력해주세요"
+            onChange={onChangeInputPost}
+          />
         </div>
         <textarea className="content" onChange={onChangeInputPost} />
       </div>
