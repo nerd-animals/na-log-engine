@@ -7,18 +7,36 @@ export default function Write() {
   const [post, setPost] = useState<Post>({
     title: '',
     author: '',
-    tags: '',
+    tags: [],
     date: '',
     content: '',
   });
 
-  const onChangeInputPost = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
+  const [inputTag, setInputTag] = useState('');
+
+  const handleChangeInputTag = (e: any) => {
+    setInputTag(e.target.value);
+  };
+
+  const onChangeInputPost = (e: any) => {
     setPost((prevState) => ({
       ...prevState,
       [e.target.className]: e.target.value,
     }));
+  };
+
+  const addTag = () => {
+    if (inputTag !== '') {
+      setPost((prevPost) => ({
+        ...prevPost,
+        tags: [...prevPost.tags, inputTag.trim()],
+      }));
+      setInputTag('');
+    }
+  };
+
+  const handleKeyDownValue = (e: any) => {
+    if (e.key === 'Enter' && e.nativeEvent.isComposing === false) addTag();
   };
 
   return (
@@ -35,7 +53,9 @@ export default function Write() {
             className="tags"
             type="text"
             placeholder="태그를 입력해주세요"
-            onChange={onChangeInputPost}
+            value={inputTag}
+            onChange={handleChangeInputTag}
+            onKeyDown={handleKeyDownValue}
           />
           <input
             className="date"
