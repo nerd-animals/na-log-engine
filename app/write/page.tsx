@@ -18,7 +18,7 @@ export default function Write() {
     setInputTag(e.target.value);
   };
 
-  const onChangeInputPost = (e: any) => {
+  const handleChangeInputPost = (e: any) => {
     setPost((prevState) => ({
       ...prevState,
       [e.target.className]: e.target.value,
@@ -59,7 +59,7 @@ export default function Write() {
             className="title"
             type="text"
             placeholder="제목을 입력해주세요"
-            onChange={onChangeInputPost}
+            onChange={handleChangeInputPost}
           />
           <input
             className="tags"
@@ -73,16 +73,16 @@ export default function Write() {
             className="date"
             type="date"
             required
-            onChange={onChangeInputPost}
+            onChange={handleChangeInputPost}
           />
           <input
             className="author"
             type="text"
             placeholder="글쓴이를 입력해주세요"
-            onChange={onChangeInputPost}
+            onChange={handleChangeInputPost}
           />
         </div>
-        <textarea className="content" onChange={onChangeInputPost} />
+        <textarea className="content" onChange={handleChangeInputPost} />
       </div>
       <div className="write-preview">
         <PostDisplay post={post} />
