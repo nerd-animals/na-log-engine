@@ -13,17 +13,6 @@ export default function Write() {
 
   const [inputTag, setInputTag] = useState('');
 
-  const handleChangeInputTag = (e: any) => {
-    setInputTag(e.target.value);
-  };
-
-  const handleChangeInputPost = (e: any) => {
-    setPost((prevState) => ({
-      ...prevState,
-      [e.target.className]: e.target.value,
-    }));
-  };
-
   const addTag = () => {
     if (inputTag !== '') {
       setPost((prevPost) => ({
@@ -41,6 +30,17 @@ export default function Write() {
         tags: prevPost.tags.slice(0, -1),
       }));
     }
+  };
+
+  const handleChangeInputTag = (e: any) => {
+    setInputTag(e.target.value);
+  };
+
+  const handleChangeInputPost = (e: any) => {
+    setPost((prevState) => ({
+      ...prevState,
+      [e.target.className]: e.target.value,
+    }));
   };
 
   const handleKeyDownValue = (e: any) => {
