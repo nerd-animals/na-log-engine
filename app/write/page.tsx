@@ -32,18 +32,20 @@ export default function Write() {
     }
   };
 
-  const handleChangeInputTag = (e: any) => {
+  const handleChangeInputTag = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputTag(e.target.value);
   };
 
-  const handleChangeInputPost = (e: any) => {
+  const handleChangeInputPost = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setPost((prevState) => ({
       ...prevState,
       [e.target.className]: e.target.value,
     }));
   };
 
-  const handleKeyDownValue = (e: any) => {
+  const handleKeyDownValue = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter' && e.nativeEvent.isComposing === false) addTag();
     else if (e.key === 'Backspace') {
       deleteTag();
