@@ -2,7 +2,14 @@
   font-family: 'codefont';
   src: url('../../public/fonts/codefont.woff2') format('woff2');
 }
+
 .post-wrapper {
+  // figure
+  figure {
+    margin-inline-start: 0px;
+    width: 100%;
+  }
+
   // 콜아웃
   aside {
     background-color: #f0f0f0;
@@ -109,8 +116,6 @@
 
   // 코드블럭
   figure {
-    margin-inline-start: 0px;
-    width: 100%;
     & pre {
       border-radius: 10px;
       line-height: 23px;
@@ -123,15 +128,17 @@
     }
   }
 
-  //이미지
+  // 이미지
   img {
     display: block;
     margin: 0 auto;
     max-width: 100%;
   }
-  figcaption {
-    margin-top: 5px;
-    text-align: center;
-    color: darkgray;
+  figure {
+    figcaption {
+      margin-top: 5px;
+      text-align: center;
+      color: darkgray;
+    }
   }
 }
