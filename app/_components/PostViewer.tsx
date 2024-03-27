@@ -5,7 +5,7 @@ export interface Post {
   content: string;
 }
 
-export default function PostDisplay({ post }: { post: Post }) {
+export default function PostViewer({ post }: { post: Post }) {
   return (
     <div className="post-wrapper">
       <div className="post-title">{post.title}</div>

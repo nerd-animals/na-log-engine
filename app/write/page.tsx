@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import PostDisplay, { Post } from 'app/_components/PostDisplay';
+import PostViewer, { Post } from 'app/_components/PostViewer';
 
 export default function Write() {
   const [post, setPost] = useState<Post>({
@@ -78,7 +78,7 @@ export default function Write() {
         <textarea className="content" onChange={handleChangeInputPost} />
       </div>
       <div className="write-preview">
-        <PostDisplay post={post} />
+        <PostViewer post={post} />
       </div>
     </div>
   );
