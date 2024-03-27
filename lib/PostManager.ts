@@ -16,7 +16,7 @@ interface FrontMatter {
   date: Date;
 }
 
-interface Post {
+export interface Post {
   slug: string[];
   frontMatter: FrontMatter;
   content: string;
