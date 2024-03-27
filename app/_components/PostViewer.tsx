@@ -1,3 +1,5 @@
+import PostContent from './PostContent';
+
 export interface Post {
   title: string;
   author: string;
@@ -23,7 +25,7 @@ export default function PostViewer({ post }: { post: Post }) {
       <div className="post-author">
         ✍️ written by <strong>{post.author}</strong>
       </div>
-      <div className="post-content">{post.content}</div>
+      <PostContent content={post.content} />
     </div>
   );
 }
