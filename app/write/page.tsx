@@ -8,7 +8,6 @@ export default function Write() {
     title: '',
     author: '',
     tags: [],
-    date: '',
     content: '',
   });
 
@@ -68,12 +67,6 @@ export default function Write() {
             value={inputTag}
             onChange={handleChangeInputTag}
             onKeyDown={handleKeyDownValue}
-          />
-          <input
-            className="date"
-            type="date"
-            required
-            onChange={handleChangeInputPost}
           />
           <input
             className="author"

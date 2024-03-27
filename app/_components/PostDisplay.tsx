@@ -2,7 +2,6 @@ export interface Post {
   title: string;
   author: string;
   tags: string[];
-  date: string;
   content: string;
 }
 
@@ -19,15 +18,6 @@ export default function PostDisplay({ post }: { post: Post }) {
                 </div>
               ))
             : null}
-        </div>
-        <div className="post-date">
-          🗓️{' '}
-          {new Date(post.date).toLocaleDateString('en-us', {
-            year: 'numeric',
-            month: 'long',
-            day: '2-digit',
-            weekday: 'short',
-          })}
         </div>
       </div>
       <div className="post-author">
