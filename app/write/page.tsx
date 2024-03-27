@@ -35,8 +35,20 @@ export default function Write() {
     }
   };
 
+  const deleteTag = () => {
+    if (inputTag === '') {
+      setPost((prevPost) => ({
+        ...prevPost,
+        tags: prevPost.tags.slice(0, -1),
+      }));
+    }
+  };
+
   const handleKeyDownValue = (e: any) => {
     if (e.key === 'Enter' && e.nativeEvent.isComposing === false) addTag();
+    else if (e.key === 'Backspace') {
+      deleteTag();
+    }
   };
 
   return (
