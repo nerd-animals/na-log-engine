@@ -11,6 +11,9 @@ export default async function Header() {
           </Link>
         </div>
         <div className="category-section">
+          <Link className="link" href="/write">
+            write
+          </Link>
           <Link className="link" href="/about">
             about
           </Link>
