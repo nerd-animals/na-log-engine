@@ -8,7 +8,7 @@ interface MdxContent {
   content: string;
 }
 
-interface FrontMatter {
+export interface FrontMatter {
   title: string;
   summary: string;
   author: string;
