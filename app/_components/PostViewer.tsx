@@ -1,9 +1,8 @@
+import { PostWithoutSlug } from 'lib/PostManager';
 import PostContent from './PostContent';
 import PostHeader from './PostHeader';
 
-import { Post } from '../../lib/PostManager';
-
-export default function PostViewer({ post }: { post: Post }) {
+export default function PostViewer({ post }: { post: PostWithoutSlug }) {
   return (
     <div className="post-wrapper">
       <PostHeader data={post.frontMatter} />
