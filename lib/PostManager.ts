@@ -22,6 +22,11 @@ export interface Post {
   content: string;
 }
 
+export interface PostWithoutSlug {
+  frontMatter: FrontMatter;
+  content: string;
+}
+
 export default class PostManager {
   private static instance: PostManager;
 
