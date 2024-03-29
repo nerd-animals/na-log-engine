@@ -1,0 +1,97 @@
+import { useContext, useState } from 'react';
+import { PostWithoutSlug } from 'lib/PostManager';
+import { PostContext } from './PostContext';
+
+export default function PostEditor() {
+  const { post, setPost } = useContext(PostContext);
+  const [inputTag, setInputTag] = useState('');
+
+  const addTag = () => {
+    if (inputTag !== '') {
+      setPost((prevPost: PostWithoutSlug) => ({
+        ...prevPost,
+        frontMatter: {
+          ...prevPost.frontMatter,
+          tags: [...prevPost.frontMatter.tags, inputTag.trim()],
+        },
+      }));
+      setInputTag('');
+    }
+  };
+
+  const deleteTag = () => {
+    if (inputTag === '') {
+      setPost((prevPost: PostWithoutSlug) => ({
+        ...prevPost,
+        frontMatter: {
+          ...prevPost.frontMatter,
+          tags: prevPost.frontMatter.tags.slice(0, -1),
+        },
+      }));
+    }
+  };
+
+  const handleChangeInputTag = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputTag(e.target.value);
+  };
+
+  const handleChangeInputPost = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    if (e.target.className !== 'content') {
+      setPost((prevPost: PostWithoutSlug) => ({
+        ...prevPost,
+        frontMatter: {
+          ...prevPost.frontMatter,
+          [e.target.className]: e.target.value,
+        },
+      }));
+    } else {
+      setPost((prevPost: PostWithoutSlug) => ({
+        ...prevPost,
+        content: e.target.value,
+      }));
+    }
+  };
+
+  const handleKeyDownValue = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter' && e.nativeEvent.isComposing === false) addTag();
+    else if (e.key === 'Backspace') {
+      deleteTag();
+    }
+  };
+
+  return (
+    <div className="write-editor">
+      <div className="front-matter">
+        <input
+          className="title"
+          type="text"
+          value={post.frontMatter.title}
+          placeholder="제목을 입력해주세요"
+          onChange={handleChangeInputPost}
+        />
+        <input
+          className="tags"
+          type="text"
+          placeholder="태그를 입력해주세요"
+          value={inputTag}
+          onChange={handleChangeInputTag}
+          onKeyDown={handleKeyDownValue}
+        />
+        <input
+          className="author"
+          type="text"
+          placeholder="글쓴이를 입력해주세요"
+          value={post.frontMatter.author}
+          onChange={handleChangeInputPost}
+        />
+      </div>
+      <textarea
+        className="content"
+        value={post.content}
+        onChange={handleChangeInputPost}
+      />
+    </div>
+  );
+}
