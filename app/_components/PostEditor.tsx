@@ -55,7 +55,10 @@ export default function PostEditor() {
   };
 
   const handleKeyDownValue = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter' && e.nativeEvent.isComposing === false) addTag();
+    if (e.key === ',') {
+      setTimeout(() => addTag(), 30);
+    } else if (e.key === 'Enter' && e.nativeEvent.isComposing === false)
+      addTag();
     else if (e.key === 'Backspace') {
       deleteTag();
     }
