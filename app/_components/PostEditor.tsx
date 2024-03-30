@@ -58,6 +58,28 @@ export default function PostEditor() {
     }
   };
 
+  const handlePasteInputTag = (e: React.ClipboardEvent<HTMLInputElement>) => {
+    const pastedData = e.clipboardData.getData('text');
+
+    if (pastedData.includes(',')) {
+      e.preventDefault();
+
+      const tagsWithComma = pastedData
+        .split(',')
+        .filter((tag: any) => tag.trim() !== '');
+
+      setPost((prevPost: PostWithoutSlug) => ({
+        ...prevPost,
+        frontMatter: {
+          ...prevPost.frontMatter,
+          tags: Array.from(
+            new Set([...prevPost.frontMatter.tags, ...tagsWithComma])
+          ),
+        },
+      }));
+    }
+  };
+
   const handleKeyDownValue = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === ',') {
       setTimeout(() => addTag(), 30);
@@ -84,6 +106,7 @@ export default function PostEditor() {
           placeholder="태그를 입력해주세요"
           value={inputTag}
           onChange={handleChangeInputTag}
+          onPaste={handlePasteInputTag}
           onKeyDown={handleKeyDownValue}
         />
         <input
