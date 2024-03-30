@@ -44,18 +44,18 @@ export default function PostEditor() {
   const handleChangeInputPost = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    if (e.target.className !== 'content') {
+    if (e.target.className === 'content') {
+      setPost((prevPost: PostWithoutSlug) => ({
+        ...prevPost,
+        content: e.target.value,
+      }));
+    } else {
       setPost((prevPost: PostWithoutSlug) => ({
         ...prevPost,
         frontMatter: {
           ...prevPost.frontMatter,
           [e.target.className]: e.target.value,
         },
-      }));
-    } else {
-      setPost((prevPost: PostWithoutSlug) => ({
-        ...prevPost,
-        content: e.target.value,
       }));
     }
   };
