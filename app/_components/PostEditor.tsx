@@ -3,34 +3,19 @@ import { PostWithoutSlug } from 'lib/PostManager';
 import { PostContext } from './PostContext';
 
 export default function PostEditor() {
-  const { post, setPost } = useContext(PostContext);
+  const { post, setPost, updateTags } = useContext(PostContext);
   const [inputTag, setInputTag] = useState('');
 
   const addTag = () => {
     if (inputTag.trim() === '' || post.frontMatter.tags.includes(inputTag)) {
       setInputTag('');
-    } else if (inputTag !== '') {
-      setPost((prevPost: PostWithoutSlug) => ({
-        ...prevPost,
-        frontMatter: {
-          ...prevPost.frontMatter,
-          tags: [...prevPost.frontMatter.tags, inputTag.trim()],
-        },
-      }));
-      setInputTag('');
-    }
+    } else if (inputTag !== '')
+      updateTags([...post.frontMatter.tags, inputTag.trim()]);
+    setInputTag('');
   };
 
   const deleteTag = () => {
-    if (inputTag === '') {
-      setPost((prevPost: PostWithoutSlug) => ({
-        ...prevPost,
-        frontMatter: {
-          ...prevPost.frontMatter,
-          tags: prevPost.frontMatter.tags.slice(0, -1),
-        },
-      }));
-    }
+    if (inputTag === '') updateTags(post.frontMatter.tags.slice(0, -1));
   };
 
   const handleChangeInputTag = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -70,15 +55,9 @@ export default function PostEditor() {
         .split(',')
         .filter((tag: any) => tag.trim() !== '');
 
-      setPost((prevPost: PostWithoutSlug) => ({
-        ...prevPost,
-        frontMatter: {
-          ...prevPost.frontMatter,
-          tags: Array.from(
-            new Set([...prevPost.frontMatter.tags, ...tagsWithComma])
-          ),
-        },
-      }));
+      updateTags(
+        Array.from(new Set([...post.frontMatter.tags, ...tagsWithComma]))
+      );
     }
   };
 

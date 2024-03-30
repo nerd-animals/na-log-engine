@@ -22,9 +22,11 @@ const defaultPost: PostWithoutSlug = {
 export const PostContext = createContext<{
   post: PostWithoutSlug;
   setPost: Dispatch<SetStateAction<PostWithoutSlug>>;
+  updateTags: (newTags: string[]) => void;
 }>({
   post: defaultPost,
   setPost: () => {},
+  updateTags: () => {},
 });
 
 function PostProvider({ children }: { children: ReactNode }) {
@@ -33,10 +35,21 @@ function PostProvider({ children }: { children: ReactNode }) {
     Dispatch<SetStateAction<PostWithoutSlug>>,
   ] = useState<PostWithoutSlug>(defaultPost);
 
+  const updateTags = (newTags: string[]) => {
+    setPost((prevPost: PostWithoutSlug) => ({
+      ...prevPost,
+      frontMatter: {
+        ...prevPost.frontMatter,
+        tags: newTags,
+      },
+    }));
+  };
+
   const value = useMemo(
     () => ({
       post,
       setPost,
+      updateTags,
     }),
     [post, setPost]
   );
