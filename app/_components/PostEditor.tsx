@@ -7,7 +7,9 @@ export default function PostEditor() {
   const [inputTag, setInputTag] = useState('');
 
   const addTag = () => {
-    if (inputTag !== '') {
+    if (inputTag.trim() === '' || post.frontMatter.tags.includes(inputTag)) {
+      setInputTag('');
+    } else if (inputTag !== '') {
       setPost((prevPost: PostWithoutSlug) => ({
         ...prevPost,
         frontMatter: {
