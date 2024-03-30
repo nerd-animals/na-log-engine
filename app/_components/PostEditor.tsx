@@ -33,6 +33,10 @@ export default function PostEditor() {
 
   const handleChangeInputTag = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputTag(e.target.value);
+
+    if (e.target.value.startsWith(',')) {
+      setTimeout(() => setInputTag(''), 30);
+    }
   };
 
   const handleChangeInputPost = (
