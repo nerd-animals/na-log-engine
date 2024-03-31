@@ -1,8 +1,8 @@
 import { notFound } from 'next/navigation';
 import PostManager from 'lib/PostManager';
-import PostViewer from '../../_components/PostViewer';
-import Giscus from '../../_components/Giscus';
-import '../../_styles/mdx.scss';
+import PostViewer from '@/_components/post/PostViewer';
+import Giscus from '@/_components/utility/Giscus';
+import '@/_styles/mdx.scss';
 
 export function generateStaticParams() {
   const allPosts = PostManager.getInstance().getAllPost();

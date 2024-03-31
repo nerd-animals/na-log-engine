@@ -1,5 +1,5 @@
 import { allAbouts } from 'contentlayer/generated';
-import Section from './_components/Section';
+import Section from '@/_components/private/Section';
 
 export default function About() {
   return (

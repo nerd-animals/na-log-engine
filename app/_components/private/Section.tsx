@@ -1,5 +1,5 @@
-import MdxComponent from 'app/_components/MdxComponent';
-import LineHeader from './LineHeader';
+import LineHeader from '@/_components/design/LineHeader';
+import MdxComponent from '@/_components/utility/MdxComponent';
 
 export default function Section({
   title,

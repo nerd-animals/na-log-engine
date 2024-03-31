@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
 import { PostWithoutSlug } from 'lib/PostManager';
-import { PostContext } from './PostContext';
+import { PostContext } from '@/_context/PostContext';
 
 export default function PostEditor() {
   const { post, setPost, updateTags } = useContext(PostContext);
