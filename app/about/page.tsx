@@ -1,11 +1,11 @@
 import { allAbouts } from 'contentlayer/generated';
-import Section from '@/_components/private/Section';
+import AboutSection from '@/_components/private/AboutSection';
 
 export default function About() {
   return (
     <main className="about-wrapper">
       {allAbouts.map((about) => (
-        <Section
+        <AboutSection
           key={about._id}
           title={about.title}
           content={about.body.code}
