@@ -1,5 +1,5 @@
 import { allPosts } from 'contentlayer/generated';
-import Bio from '@/_components/private/Bio';
+import Bio from '@/_components/custom/Bio';
 import PostCard from '@/_components/post/PostCard';
 
 export default function Home() {
