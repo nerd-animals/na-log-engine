@@ -1,4 +1,4 @@
-import { FrontMatter } from '../../lib/PostManager';
+import { FrontMatter } from 'lib/PostManager';
 
 export default function PostHeader({ data }: { data: FrontMatter }) {
   return (

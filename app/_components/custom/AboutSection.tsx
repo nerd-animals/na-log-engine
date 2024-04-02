@@ -1,5 +1,5 @@
-import MdxComponent from 'app/_components/MdxComponent';
-import LineHeader from './LineHeader';
+import DividerTitle from '@/_components/design/DividerTitle';
+import MdxComponent from '@/_components/mdx/MdxComponent';
 
 export default function Section({
   title,
@@ -10,7 +10,7 @@ export default function Section({
 }) {
   return (
     <div className="about-section">
-      <LineHeader title={title} />
+      <DividerTitle title={title} />
       <div className="about-content">
         <MdxComponent code={content} />
       </div>

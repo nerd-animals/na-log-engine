@@ -1,6 +1,6 @@
 import { PostWithoutSlug } from 'lib/PostManager';
-import PostContent from './PostContent';
 import PostHeader from './PostHeader';
+import PostContent from './PostContent';
 
 export default function PostViewer({ post }: { post: PostWithoutSlug }) {
   return (
