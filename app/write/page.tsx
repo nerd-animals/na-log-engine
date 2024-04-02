@@ -1,8 +1,8 @@
 'use client';
 
-import PostViewer from 'app/_components/PostViewer';
-import PostEditor from 'app/_components/PostEditor';
-import { PostContext, PostProvider } from 'app/_components/PostContext';
+import PostViewer from '@/_components/post/PostViewer';
+import PostEditor from '@/_components/post/PostEditor';
+import { PostContext, PostProvider } from '@/_context/PostContext';
 import { useContext } from 'react';
 
 function WriteContent() {
