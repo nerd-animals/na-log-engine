@@ -1,6 +1,6 @@
 import { allBios } from 'contentlayer/generated';
 import Image from 'next/image';
-import MdxComponent from './MdxComponent';
+import MdxComponent from '@/_components/mdx/MdxComponent';
 
 export function getBioData() {
   return allBios[0];
