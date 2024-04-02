@@ -2,7 +2,7 @@ import { FrontMatter } from '../../lib/PostManager';
 
 export default function PostHeader({ data }: { data: FrontMatter }) {
   return (
-    <>
+    <div className="post-header">
       <div className="post-title">{data.title}</div>
       <div className="post-info">
         <div className="post-tags">
@@ -18,6 +18,6 @@ export default function PostHeader({ data }: { data: FrontMatter }) {
       <div className="post-author">
         ✍️ written by <strong>{data.author}</strong>
       </div>
-    </>
+    </div>
   );
 }
