@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import config from 'public/config.json';
-import Header from './_components/Header';
-import Footer from './_components/Footer';
-import './_styles/globals.scss';
+import Header from '@/_components/layout/Header';
+import Footer from '@/_components/layout/Footer';
+import '@/_styles/globals.scss';
 
 export async function generateMetadata(): Promise<Metadata> {
   return {

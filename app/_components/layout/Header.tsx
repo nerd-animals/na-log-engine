@@ -1,7 +1,7 @@
 import config from 'public/config.json';
 import Link from 'next/link';
 
-export default async function Header() {
+export default function Header() {
   return (
     <div className="page-header-wrapper">
       <header className="page-header">
