@@ -2,16 +2,14 @@ import Link from 'next/link';
 import { FrontMatter } from 'lib/PostManager';
 
 export default function PostCard({
-  key,
   frontMatter,
 }: {
-  key: string;
   frontMatter: FrontMatter;
 }) {
   const { title, summary, tags, date, slug } = frontMatter;
   const categories = slug.slice(0, -1);
   return (
-    <Link className="post-card" href={slug.join('/')} key={key}>
+    <Link className="post-card" href={slug.join('/')}>
       <div className="post-card-category">
         {categories[categories.length - 1]}
       </div>
