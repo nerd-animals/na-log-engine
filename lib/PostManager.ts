@@ -1,5 +1,5 @@
 import { join, sep } from 'path';
-import { MdxContent, getMdxContents, fileExtension } from './file';
+import { MdxContent, getMdxContents, fileExtension } from './mdx';
 
 export interface FrontMatter {
   title: string;
