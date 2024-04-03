@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import MdxComponent from '@/_components/mdx/MdxComponent';
+import MdxContent from '@/_components/mdx/MdxContent';
 import BioManager from 'lib/BioManager';
 
 export default function Bio() {
@@ -16,7 +16,7 @@ export default function Bio() {
   );
   const bioContent = bio?.content && (
     <div className="bio-content">
-      <MdxComponent code={bio.content} />
+      <MdxContent content={bio.content} />
     </div>
   );
 
