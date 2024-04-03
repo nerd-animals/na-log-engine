@@ -354,6 +354,15 @@ body {
     padding: 3px 5px;
     margin-right: 5px;
   }
+  &-header {
+    margin-bottom: 50px;
+    width: 100%;
+  }
+  &-content {
+    width: 100%;
+    margin-bottom: 20px;
+    word-break: break-word;
+  }
 }
 
 // write style

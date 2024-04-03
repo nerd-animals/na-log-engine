@@ -11,7 +11,9 @@ function WriteContent() {
   return (
     <div className="write-wrapper">
       <PostEditor />
-      <PostViewer post={post} />
+      <div className="write-preview">
+        <PostViewer post={post} />
+      </div>
     </div>
   );
 }
