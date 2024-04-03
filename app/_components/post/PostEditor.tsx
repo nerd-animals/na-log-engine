@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react';
-import { PostWithoutSlug } from 'lib/PostManager';
+import { Post } from 'lib/PostManager';
 import { PostContext } from '@/_context/PostContext';
 
 export default function PostEditor() {
@@ -30,12 +30,12 @@ export default function PostEditor() {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     if (e.target.className === 'content') {
-      setPost((prevPost: PostWithoutSlug) => ({
+      setPost((prevPost: Post) => ({
         ...prevPost,
         content: e.target.value,
       }));
     } else {
-      setPost((prevPost: PostWithoutSlug) => ({
+      setPost((prevPost: Post) => ({
         ...prevPost,
         frontMatter: {
           ...prevPost.frontMatter,

@@ -14,15 +14,10 @@ export interface FrontMatter {
   author: string;
   tags: string[];
   date: Date;
+  slug: string[];
 }
 
 export interface Post {
-  slug: string[];
-  frontMatter: FrontMatter;
-  content: string;
-}
-
-export interface PostWithoutSlug {
   frontMatter: FrontMatter;
   content: string;
 }
@@ -64,9 +59,10 @@ export default class PostManager {
       author: data.author,
       tags: data.tags,
       date: data.date,
+      slug,
     };
 
-    return { slug, frontMatter, content };
+    return { frontMatter, content };
   }
 
   private getSlug(path: string): string[] {
@@ -88,6 +84,8 @@ export default class PostManager {
   }
 
   public getPost(slug: string[]) {
-    return this.allPosts.find((post) => post.slug.join('/') === slug.join('/'));
+    return this.allPosts.find(
+      (post) => post.frontMatter.slug.join('/') === slug.join('/')
+    );
   }
 }
