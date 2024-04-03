@@ -48,7 +48,7 @@ export default class PostManager {
 
   static getSlug(path: string): string[] {
     const slug: string[] = path
-      .replace(process.cwd(), '')
+      .replace(join(process.cwd(), 'post'), '')
       .replace(fileExtension, '')
       .split(sep)
       .filter((part) => part !== '');
