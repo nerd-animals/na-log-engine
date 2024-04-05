@@ -1,21 +1,17 @@
-import { allPosts } from 'contentlayer/generated';
 import Bio from '@/_components/custom/Bio';
 import PostCard from '@/_components/post/PostCard';
+import PostManager from 'lib/PostManager';
 
 export default function Home() {
+  const allPosts = PostManager.getInstance().getAllPost();
   return (
     <>
       <Bio />
       <main className="post-card-wrapper">
         {allPosts.map((post) => (
           <PostCard
-            key={post._id}
-            slug={post.slug}
-            categories={post.categories}
-            title={post.title}
-            summary={post.summary}
-            tags={post.tags}
-            date={post.date}
+            key={post.frontMatter.slug.join('/')}
+            frontMatter={post.frontMatter}
           />
         ))}
       </main>
