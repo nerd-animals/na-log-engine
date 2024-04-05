@@ -26,7 +26,7 @@ export default class BioManager {
     }
   }
 
-  static makeBio(mdxContent: MdxContent): Bio {
+  private static makeBio(mdxContent: MdxContent): Bio {
     const { data, content } = mdxContent;
 
     const bio: Bio = {

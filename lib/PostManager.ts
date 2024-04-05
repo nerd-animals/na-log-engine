@@ -30,7 +30,7 @@ export default class PostManager {
     );
   }
 
-  static makePost(mdxContent: MdxContent): Post {
+  private static makePost(mdxContent: MdxContent): Post {
     const { path, data, content } = mdxContent;
     const slug: string[] = PostManager.getSlug(path);
 
@@ -46,7 +46,7 @@ export default class PostManager {
     return { frontMatter, content };
   }
 
-  static getSlug(path: string): string[] {
+  private static getSlug(path: string): string[] {
     const slug: string[] = path
       .replace(join(process.cwd(), 'post'), '')
       .replace(fileExtension, '')

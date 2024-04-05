@@ -22,7 +22,7 @@ export default class AboutManager {
       .map((mdxContent) => AboutManager.makeAbout(mdxContent));
   }
 
-  static makeAbout(mdxContent: MdxContent): About {
+  private static makeAbout(mdxContent: MdxContent): About {
     const { path, data, content } = mdxContent;
     const dirPath: string = join(process.cwd(), '');
 
