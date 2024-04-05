@@ -1,7 +1,7 @@
 import DividerTitle from '@/_components/design/DividerTitle';
 import MdxComponent from '@/_components/mdx/MdxComponent';
 
-export default function Section({
+export default function AboutSection({
   title,
   content,
 }: {
