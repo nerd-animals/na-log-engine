@@ -1,12 +1,5 @@
 import { join, sep } from 'path';
-import { readFileSync } from 'fs';
-import matter from 'gray-matter';
-import getAllFiles from './file';
-
-interface MdxContent {
-  data: any;
-  content: string;
-}
+import { MdxContent, getMdxContents, fileExtension } from './mdx';
 
 export interface FrontMatter {
   title: string;
@@ -14,15 +7,10 @@ export interface FrontMatter {
   author: string;
   tags: string[];
   date: Date;
+  slug: string[];
 }
 
 export interface Post {
-  slug: string[];
-  frontMatter: FrontMatter;
-  content: string;
-}
-
-export interface PostWithoutSlug {
   frontMatter: FrontMatter;
   content: string;
 }
@@ -30,33 +18,21 @@ export interface PostWithoutSlug {
 export default class PostManager {
   private static instance: PostManager;
 
-  private readonly postPath = join(process.cwd(), 'post');
-
-  private readonly postExtension = '.mdx';
-
   private readonly allPosts: Post[];
 
   private constructor() {
-    const allPaths: string[] = getAllFiles(this.postPath)
-      .map((file) => file.replace(this.postPath, ''))
-      .filter((file) => file.endsWith(this.postExtension));
+    const allMdxContents: MdxContent[] = getMdxContents(
+      join(process.cwd(), 'post')
+    );
 
-    this.allPosts = this.getAllPosts(allPaths);
+    this.allPosts = allMdxContents.map((mdxContent) =>
+      PostManager.makePost(mdxContent)
+    );
   }
 
-  private getAllPosts(paths: string[]): Post[] {
-    const mdxContents: Post[] = paths.map((path) => {
-      const fileContent = readFileSync(join(process.cwd(), 'post', path));
-      const { data, content } = matter(fileContent);
-      return this.validate(path, { data, content });
-    });
-
-    return mdxContents;
-  }
-
-  private validate(path: string, mdxContent: MdxContent): Post {
-    const { data, content } = mdxContent;
-    const slug: string[] = this.getSlug(path);
+  private static makePost(mdxContent: MdxContent): Post {
+    const { path, data, content } = mdxContent;
+    const slug: string[] = PostManager.getSlug(path);
 
     const frontMatter: FrontMatter = {
       title: data.title,
@@ -64,16 +40,20 @@ export default class PostManager {
       author: data.author,
       tags: data.tags,
       date: data.date,
+      slug,
     };
 
-    return { slug, frontMatter, content };
+    return { frontMatter, content };
   }
 
-  private getSlug(path: string): string[] {
-    return path
-      .replace(this.postExtension, '')
+  private static getSlug(path: string): string[] {
+    const slug: string[] = path
+      .replace(join(process.cwd(), 'post'), '')
+      .replace(fileExtension, '')
       .split(sep)
       .filter((part) => part !== '');
+
+    return slug;
   }
 
   public static getInstance() {
@@ -88,6 +68,8 @@ export default class PostManager {
   }
 
   public getPost(slug: string[]) {
-    return this.allPosts.find((post) => post.slug.join('/') === slug.join('/'));
+    return this.allPosts.find(
+      (post) => post.frontMatter.slug.join('/') === slug.join('/')
+    );
   }
 }

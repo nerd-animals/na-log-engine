@@ -1,4 +1,4 @@
-import { PostWithoutSlug } from 'lib/PostManager';
+import { Post } from 'lib/PostManager';
 import {
   useState,
   createContext,
@@ -8,20 +8,21 @@ import {
   SetStateAction,
 } from 'react';
 
-const defaultPost: PostWithoutSlug = {
+const defaultPost: Post = {
   frontMatter: {
     title: '',
     summary: '',
     author: '',
     tags: [],
     date: new Date(),
+    slug: [],
   },
   content: '',
 };
 
 export const PostContext = createContext<{
-  post: PostWithoutSlug;
-  setPost: Dispatch<SetStateAction<PostWithoutSlug>>;
+  post: Post;
+  setPost: Dispatch<SetStateAction<Post>>;
   updateTags: (newTags: string[]) => void;
 }>({
   post: defaultPost,
@@ -30,13 +31,11 @@ export const PostContext = createContext<{
 });
 
 function PostProvider({ children }: { children: ReactNode }) {
-  const [post, setPost]: [
-    PostWithoutSlug,
-    Dispatch<SetStateAction<PostWithoutSlug>>,
-  ] = useState<PostWithoutSlug>(defaultPost);
+  const [post, setPost]: [Post, Dispatch<SetStateAction<Post>>] =
+    useState<Post>(defaultPost);
 
   const updateTags = (newTags: string[]) => {
-    setPost((prevPost: PostWithoutSlug) => ({
+    setPost((prevPost: Post) => ({
       ...prevPost,
       frontMatter: {
         ...prevPost.frontMatter,

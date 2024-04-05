@@ -7,7 +7,7 @@ import '@/_styles/mdx.scss';
 export function generateStaticParams() {
   const allPosts = PostManager.getInstance().getAllPost();
 
-  const paths = allPosts.map((post) => ({ slug: post.slug }));
+  const paths = allPosts.map((post) => ({ slug: post.frontMatter.slug }));
   paths.push({ slug: ['not-found'] });
   return paths;
 }

@@ -1,6 +1,4 @@
 // next.config.js
-const { withContentlayer } = require('next-contentlayer');
-
 function getBasePath() {
   if (!process.env.GITHUB_REPOSITORY) {
     return '';
@@ -26,4 +24,4 @@ const nextConfig = {
   publicRuntimeConfig: { basePath: getBasePath() },
 };
 
-module.exports = withContentlayer(nextConfig);
+module.exports = nextConfig;
