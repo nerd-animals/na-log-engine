@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react';
-import { PostWithoutSlug } from 'lib/PostManager';
+import { Post } from 'lib/PostManager';
 import { PostContext } from '@/_context/PostContext';
 
 export default function PostEditor() {
@@ -30,12 +30,12 @@ export default function PostEditor() {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     if (e.target.className === 'content') {
-      setPost((prevPost: PostWithoutSlug) => ({
+      setPost((prevPost: Post) => ({
         ...prevPost,
         content: e.target.value,
       }));
     } else {
-      setPost((prevPost: PostWithoutSlug) => ({
+      setPost((prevPost: Post) => ({
         ...prevPost,
         frontMatter: {
           ...prevPost.frontMatter,
@@ -53,7 +53,7 @@ export default function PostEditor() {
 
       const tagsWithComma = pastedData
         .split(',')
-        .filter((tag: any) => tag.trim() !== '');
+        .filter((tag: string) => tag.trim() !== '');
 
       updateTags(
         Array.from(new Set([...post.frontMatter.tags, ...tagsWithComma]))

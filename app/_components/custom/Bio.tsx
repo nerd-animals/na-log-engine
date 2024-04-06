@@ -1,13 +1,9 @@
-import { allBios } from 'contentlayer/generated';
 import Image from 'next/image';
-import MdxComponent from '@/_components/mdx/MdxComponent';
-
-export function getBioData() {
-  return allBios[0];
-}
+import MdxContent from '@/_components/mdx/MdxContent';
+import BioManager from 'lib/BioManager';
 
 export default function Bio() {
-  const bio = getBioData();
+  const bio = BioManager.getInstance().getBio();
 
   const bioProfile = bio?.imagePath && (
     <Image
@@ -18,9 +14,9 @@ export default function Bio() {
       height={200}
     />
   );
-  const bioContent = bio?.body.code && (
+  const bioContent = bio?.content && (
     <div className="bio-content">
-      <MdxComponent code={bio.body.code} />
+      <MdxContent content={bio.content} />
     </div>
   );
 

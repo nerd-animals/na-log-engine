@@ -22,8 +22,7 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "@/*": ["app/*"],
-      "contentlayer/generated": ["./.contentlayer/generated"]
+      "@/*": ["app/*"]
     }
   },
   "include": [
@@ -31,9 +30,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    ".contentlayer/generated",
-    "next.config.js",
-    "contentlayer.config.js"
+    "next.config.js"
   ],
   "exclude": ["node_modules"]
 }
