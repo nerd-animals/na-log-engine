@@ -53,7 +53,7 @@ export default function PostEditor() {
 
       const tagsWithComma = pastedData
         .split(',')
-        .filter((tag: any) => tag.trim() !== '');
+        .filter((tag: string) => tag.trim() !== '');
 
       updateTags(
         Array.from(new Set([...post.frontMatter.tags, ...tagsWithComma]))
