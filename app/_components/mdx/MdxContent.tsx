@@ -1,16 +1,24 @@
-import { unified } from 'unified'
-import remarkParse from 'remark-parse'
-import remarkRehype from 'remark-rehype'
-import rehypeSanitize from 'rehype-sanitize'
-import rehypeStringify from 'rehype-stringify'
+'use client';
 
-export default async function MdxContent({ content }: { content: string }) {
-  const html = await unified()
-    .use(remarkParse) // Convert into markdown AST
-    .use(remarkRehype) // Transform to HTML AST
-    .use(rehypeSanitize) // Sanitize HTML input
-    .use(rehypeStringify) // Convert AST into serialized HTML
-    .process(content)
- 
-  return <div dangerouslySetInnerHTML={{ __html: html.toString() }} />
+import { unified } from 'unified';
+import remarkParse from 'remark-parse';
+import remarkRehype from 'remark-rehype';
+import rehypeRaw from 'rehype-raw';
+import rehypeStringify from 'rehype-stringify';
+import remarkGfm from 'remark-gfm';
+import remarkBreaks from 'remark-breaks';
+
+export default function MdxContent({ content }: { content: string }) {
+  const html = unified()
+    .use(remarkParse)
+    .use(remarkGfm)
+    .use(remarkBreaks)
+    // 여기다가 remark plugin을 추가
+    .use(remarkRehype, { allowDangerousHtml: true })
+    .use(rehypeRaw)
+    // 여기다가 rehype plugin을 추가
+    .use(rehypeStringify)
+    .processSync(content);
+
+  return <div dangerouslySetInnerHTML={{ __html: html.toString() }} />;
 }
