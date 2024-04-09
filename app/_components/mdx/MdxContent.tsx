@@ -8,6 +8,7 @@ import rehypeRaw from 'rehype-raw';
 import rehypeStringify from 'rehype-stringify';
 import rehypePrettycode from 'rehype-pretty-code';
 import rehypeSlug from 'rehype-slug';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import remarkGfm from 'remark-gfm';
 import remarkBreaks from 'remark-breaks';
 
@@ -27,6 +28,12 @@ export default function MdxContent({ content }: { content: string }) {
         .use(rehypeStringify)
         .use(rehypePrettycode)
         .use(rehypeSlug)
+        .use(rehypeAutolinkHeadings, {
+          properties: {
+            className: ['anchor'],
+          },
+          behavior: 'wrap',
+        })
         .process(content);
 
       setHtmlContent(html.toString());
