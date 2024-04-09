@@ -9,6 +9,7 @@ import rehypeStringify from 'rehype-stringify';
 import rehypePrettycode from 'rehype-pretty-code';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import rehypeExternalLinks from 'rehype-external-links';
 import remarkGfm from 'remark-gfm';
 import remarkBreaks from 'remark-breaks';
 
@@ -33,6 +34,13 @@ export default function MdxContent({ content }: { content: string }) {
             className: ['anchor'],
           },
           behavior: 'wrap',
+        })
+        .use(rehypeExternalLinks, {
+          properties: {
+            class: 'external-link',
+          },
+          target: '_blank',
+          rel: ['noopener noreferrer'],
         })
         .process(content);
 
