@@ -22,10 +22,8 @@ export default function MdxContent({ content }: { content: string }) {
         .use(remarkParse)
         .use(remarkGfm)
         .use(remarkBreaks)
-        // 여기다가 remark plugin을 추가
         .use(remarkRehype, { allowDangerousHtml: true })
         .use(rehypeRaw)
-        // 여기다가 rehype plugin을 추가
         .use(rehypeStringify)
         .use(rehypePrettycode)
         .use(rehypeSlug)
