@@ -5,6 +5,9 @@ import { PostContext } from '@/_context/PostContext';
 export default function PostEditor() {
   const { post, setPost, updateTags } = useContext(PostContext);
   const [inputTag, setInputTag] = useState('');
+  const formattedDate: string = post.frontMatter.date
+    .toISOString()
+    .substring(0, 10);
 
   const addTag = () => {
     if (inputTag.trim() === '' || post.frontMatter.tags.includes(inputTag)) {
@@ -33,6 +36,14 @@ export default function PostEditor() {
       setPost((prevPost: Post) => ({
         ...prevPost,
         content: e.target.value,
+      }));
+    } else if (e.target.className === 'date') {
+      setPost((prevPost: Post) => ({
+        ...prevPost,
+        frontMatter: {
+          ...prevPost.frontMatter,
+          [e.target.className]: new Date(e.target.value),
+        },
       }));
     } else {
       setPost((prevPost: Post) => ({
@@ -89,6 +100,12 @@ export default function PostEditor() {
           onChange={handleChangeInputTag}
           onPaste={handlePasteInputTag}
           onKeyDown={handleKeyDownValue}
+        />
+        <input
+          className="date"
+          type="date"
+          value={formattedDate}
+          onChange={handleChangeInputPost}
         />
         <input
           className="author"
