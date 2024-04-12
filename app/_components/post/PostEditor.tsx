@@ -5,6 +5,7 @@ import { PostContext } from '@/_context/PostContext';
 export default function PostEditor() {
   const { post, setPost, updateTags } = useContext(PostContext);
   const [inputTag, setInputTag] = useState('');
+  const [toast, setToast] = useState(false);
 
   const addTag = () => {
     if (inputTag.trim() === '' || post.frontMatter.tags.includes(inputTag)) {
@@ -24,6 +25,10 @@ export default function PostEditor() {
     if (e.target.value.startsWith(',')) {
       setTimeout(() => setInputTag(''), 30);
     }
+  };
+
+  const handleInputTagFocus = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setToast(e.type === 'focus');
   };
 
   const handleChangeInputPost = (
@@ -81,15 +86,19 @@ export default function PostEditor() {
           placeholder="제목을 입력해주세요"
           onChange={handleChangeInputPost}
         />
-        <input
-          className="tags"
-          type="text"
-          placeholder="태그를 입력해주세요"
-          value={inputTag}
-          onChange={handleChangeInputTag}
-          onPaste={handlePasteInputTag}
-          onKeyDown={handleKeyDownValue}
-        />
+        <div className="tags-wrapper">
+          <input
+            className="tags"
+            type="text"
+            placeholder="태그를 입력해주세요"
+            value={inputTag}
+            onChange={handleChangeInputTag}
+            onPaste={handlePasteInputTag}
+            onKeyDown={handleKeyDownValue}
+            onFocus={handleInputTagFocus}
+            onBlur={handleInputTagFocus}
+          />
+        </div>
         <input
           className="author"
           type="text"
