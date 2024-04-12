@@ -1,4 +1,4 @@
-export default function ToastPopup({
+export default function Toast({
   toast,
   message,
 }: {
