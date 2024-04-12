@@ -6,6 +6,9 @@ import useDownloadMdx from '@/_hooks/useDownloadMdx';
 export default function PostEditor() {
   const { post, setPost, updateTags } = useContext(PostContext);
   const [inputTag, setInputTag] = useState('');
+  const formattedDate: string = post.frontMatter.date
+    .toISOString()
+    .substring(0, 10);
   const handleDownloadMdx = useDownloadMdx();
 
   const addTag = () => {
@@ -31,20 +34,18 @@ export default function PostEditor() {
   const handleChangeInputPost = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    if (e.target.className === 'content') {
-      setPost((prevPost: Post) => ({
-        ...prevPost,
-        content: e.target.value,
-      }));
-    } else {
-      setPost((prevPost: Post) => ({
-        ...prevPost,
-        frontMatter: {
-          ...prevPost.frontMatter,
-          [e.target.className]: e.target.value,
-        },
-      }));
-    }
+    setPost((prevPost: Post) => ({
+      ...prevPost,
+      frontMatter: {
+        ...prevPost.frontMatter,
+        [e.target.className]:
+          e.target.className === 'date'
+            ? new Date(e.target.value)
+            : e.target.value,
+      },
+      content:
+        e.target.className === 'content' ? e.target.value : prevPost.content,
+    }));
   };
 
   const handlePasteInputTag = (e: React.ClipboardEvent<HTMLInputElement>) => {
@@ -91,6 +92,12 @@ export default function PostEditor() {
           onChange={handleChangeInputTag}
           onPaste={handlePasteInputTag}
           onKeyDown={handleKeyDownValue}
+        />
+        <input
+          className="date"
+          type="date"
+          value={formattedDate}
+          onChange={handleChangeInputPost}
         />
         <input
           className="author"

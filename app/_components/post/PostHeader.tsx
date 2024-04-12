@@ -14,6 +14,15 @@ export default function PostHeader({ data }: { data: FrontMatter }) {
               ))
             : null}
         </div>
+        <div className="post-date">
+          🗓️{' '}
+          {new Date(data.date).toLocaleDateString('en-us', {
+            year: 'numeric',
+            month: 'long',
+            day: '2-digit',
+            weekday: 'short',
+          })}
+        </div>
       </div>
       <div className="post-author">
         ✍️ written by <strong>{data.author}</strong>
