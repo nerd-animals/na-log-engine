@@ -5,10 +5,15 @@ export default function useDownloadMdx() {
   const { post } = useContext(PostContext);
 
   const DownloadMdx = () => {
+    const formattedDate: string = post.frontMatter.date
+      .toISOString()
+      .substring(0, 10);
+
     const mdxContent = `---
 title: '${post.frontMatter.title}'
 tags: [${post.frontMatter.tags.map((tag) => `'${tag}'`).join(', ')}]
 author: '${post.frontMatter.author}'
+date: ${formattedDate}
 ---
     
 ${post.content}`;
