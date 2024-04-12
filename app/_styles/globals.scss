@@ -390,6 +390,17 @@ body {
       .title {
         font-size: 2.5em;
         font-weight: bold;
+        width: 100%;
+      }
+      .tags-wrapper {
+        position: relative;
+        width: 100%;
+      }
+      .tags {
+        width: 100%;
+      }
+      .author {
+        width: 100%;
       }
     }
     .content {
