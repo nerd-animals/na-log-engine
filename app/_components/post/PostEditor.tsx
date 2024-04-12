@@ -1,6 +1,7 @@
 import { useContext, useState } from 'react';
 import { Post } from 'lib/PostManager';
 import { PostContext } from '@/_context/PostContext';
+import ToastPopup from '@/_components/design/ToastPopup';
 
 export default function PostEditor() {
   const { post, setPost, updateTags } = useContext(PostContext);
@@ -97,6 +98,12 @@ export default function PostEditor() {
             onKeyDown={handleKeyDownValue}
             onFocus={handleInputTagFocus}
             onBlur={handleInputTagFocus}
+          />
+          <ToastPopup
+            toast={toast}
+            message={`쉼표 혹은 엔터를 입력하여 태그를 등록할 수 있습니다.
+            백스페이스를 입력하여 태그를 삭제할 수 있습니다.
+          `}
           />
         </div>
         <input
