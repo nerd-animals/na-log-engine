@@ -1,7 +1,4 @@
-@font-face {
-  font-family: 'codefont';
-  src: url('../../public/fonts/codefont.woff2') format('woff2');
-}
+@import url(https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/fira_code.css);
 
 .post-wrapper {
   // figure
@@ -32,7 +29,7 @@
     padding: 1px 4px;
     border-radius: 5px;
     color: tomato;
-    font-family: codefont;
+    font-family: 'Fira code', monospace;
   }
 
   // 표
