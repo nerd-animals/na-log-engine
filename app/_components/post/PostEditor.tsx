@@ -2,11 +2,12 @@ import { useContext, useState } from 'react';
 import { Post } from 'lib/PostManager';
 import { PostContext } from '@/_context/PostContext';
 import ToastPopup from '@/_components/design/ToastPopup';
+import useToast from '@/_hooks/useToast';
 
 export default function PostEditor() {
   const { post, setPost, updateTags } = useContext(PostContext);
   const [inputTag, setInputTag] = useState('');
-  const [toast, setToast] = useState(false);
+  const { toast, showToast, hideToast } = useToast();
 
   const addTag = () => {
     if (inputTag.trim() === '' || post.frontMatter.tags.includes(inputTag)) {
@@ -26,10 +27,6 @@ export default function PostEditor() {
     if (e.target.value.startsWith(',')) {
       setTimeout(() => setInputTag(''), 30);
     }
-  };
-
-  const handleInputTagFocus = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setToast(e.type === 'focus');
   };
 
   const handleChangeInputPost = (
@@ -96,8 +93,8 @@ export default function PostEditor() {
             onChange={handleChangeInputTag}
             onPaste={handlePasteInputTag}
             onKeyDown={handleKeyDownValue}
-            onFocus={handleInputTagFocus}
-            onBlur={handleInputTagFocus}
+            onFocus={showToast}
+            onBlur={hideToast}
           />
           <ToastPopup
             toast={toast}
