@@ -21,7 +21,7 @@ date: ${formattedDate}
     
 ${post.content}`;
 
-    const fileName = 'mdx.mdx';
+    const fileName = 'post.mdx';
     const element = document.createElement('a');
     const file = new Blob([mdxContent], {
       type: 'text/plain',
