@@ -3,6 +3,9 @@ import getConfig from 'next/config';
 
 export default function robots(): MetadataRoute.Robots {
   const { publicRuntimeConfig } = getConfig();
+  const { domain, basePath } = publicRuntimeConfig;
+
+  const host = `https://${domain}${basePath}`;
 
   return {
     rules: {
@@ -10,6 +13,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/write',
     },
-    sitemap: `https://${publicRuntimeConfig.domain}/${publicRuntimeConfig.basePath}/sitemap.xml`,
+    sitemap: `${host}/sitemap.xml`,
   };
 }
