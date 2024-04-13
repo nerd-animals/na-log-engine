@@ -5,7 +5,7 @@ import getConfig from 'next/config';
 function generateSiteMap(host: string, slug: string, date: Date) {
   return {
     url: `${host}${slug}`,
-    lastModified: date.toISOString().split('T')[0],
+    lastModified: date.toISOString(),
   };
 }
 
