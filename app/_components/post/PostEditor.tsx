@@ -1,6 +1,7 @@
 import { useContext, useState } from 'react';
 import { Post } from 'lib/PostManager';
 import { PostContext } from '@/_context/PostContext';
+import useDownloadMdx from '@/_hooks/useDownloadMdx';
 
 export default function PostEditor() {
   const { post, setPost, updateTags } = useContext(PostContext);
@@ -8,6 +9,7 @@ export default function PostEditor() {
   const formattedDate: string = post.frontMatter.date
     .toISOString()
     .substring(0, 10);
+  const handleDownloadMdx = useDownloadMdx();
 
   const addTag = () => {
     if (inputTag.trim() === '' || post.frontMatter.tags.includes(inputTag)) {
@@ -110,6 +112,9 @@ export default function PostEditor() {
         value={post.content}
         onChange={handleChangeInputPost}
       />
+      <button type="button" onClick={handleDownloadMdx}>
+        다운로드
+      </button>
     </div>
   );
 }
