@@ -1,11 +1,14 @@
 import { useContext, useState } from 'react';
 import { Post } from 'lib/PostManager';
 import { PostContext } from '@/_context/PostContext';
+import Toast from '@/_components/design/Toast';
+import useToast from '@/_hooks/useToast';
 import useDownloadMdx from '@/_hooks/useDownloadMdx';
 
 export default function PostEditor() {
   const { post, setPost, updateTags } = useContext(PostContext);
   const [inputTag, setInputTag] = useState('');
+  const { toast, showToast, hideToast } = useToast();
   const formattedDate: string = post.frontMatter.date
     .toISOString()
     .substring(0, 10);
@@ -84,15 +87,25 @@ export default function PostEditor() {
           placeholder="제목을 입력해주세요"
           onChange={handleChangeInputPost}
         />
-        <input
-          className="tags"
-          type="text"
-          placeholder="태그를 입력해주세요"
-          value={inputTag}
-          onChange={handleChangeInputTag}
-          onPaste={handlePasteInputTag}
-          onKeyDown={handleKeyDownValue}
-        />
+        <div className="tags-wrapper">
+          <input
+            className="tags"
+            type="text"
+            placeholder="태그를 입력해주세요"
+            value={inputTag}
+            onChange={handleChangeInputTag}
+            onPaste={handlePasteInputTag}
+            onKeyDown={handleKeyDownValue}
+            onFocus={showToast}
+            onBlur={hideToast}
+          />
+          <Toast
+            toast={toast}
+            message={`쉼표 혹은 엔터를 입력하여 태그를 등록할 수 있습니다.
+            백스페이스를 입력하여 태그를 삭제할 수 있습니다.
+          `}
+          />
+        </div>
         <input
           className="date"
           type="date"
