@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import config from 'public/config.json';
-import Header from '@/_components/layout/Header';
 import Footer from '@/_components/layout/Footer';
 import '@/_styles/globals.scss';
 
@@ -24,12 +23,9 @@ export default function RootLayout({
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         />
       </head>
-      <body>
-        <div className="page-wrapper">
-          <Header />
-          {children}
-          <Footer />
-        </div>
+      <body className="page-wrapper">
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );
