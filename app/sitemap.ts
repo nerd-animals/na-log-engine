@@ -2,7 +2,12 @@ import { MetadataRoute } from 'next';
 import PostManager from 'lib/PostManager';
 import getConfig from 'next/config';
 
-function generateSiteMap(host: string, slug: string, date: Date) {
+function generateSiteMap(slug: string, date: Date) {
+  const { publicRuntimeConfig } = getConfig();
+  const { domain, basePath } = publicRuntimeConfig;
+
+  const host = `https://${domain}${basePath}`;
+
   return {
     url: `${host}${slug}`,
     lastModified: date.toISOString(),
@@ -10,24 +15,16 @@ function generateSiteMap(host: string, slug: string, date: Date) {
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const { publicRuntimeConfig } = getConfig();
-  const { domain, basePath } = publicRuntimeConfig;
-
-  const host = `https://${domain}${basePath}`;
   const allPosts = PostManager.getInstance().getAllPost();
   const allRoutes = ['', 'about'];
 
   const postSiteMap = allPosts.map((post) => {
     const slug = post.frontMatter.slug.join('/');
-    return generateSiteMap(
-      host,
-      `/post/${slug}`,
-      new Date(post.frontMatter.date)
-    );
+    return generateSiteMap(`/post/${slug}`, new Date(post.frontMatter.date));
   });
 
   const routeSiteMap = allRoutes.map((route) =>
-    generateSiteMap(host, route, new Date())
+    generateSiteMap(route, new Date())
   );
 
   return [...routeSiteMap, ...postSiteMap];
