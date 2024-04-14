@@ -11,6 +11,16 @@ function getBasePath() {
   return basePath;
 }
 
+function getDomain() {
+  if (!process.env.GITHUB_REPOSITORY) {
+    return '';
+  }
+
+  const githubOwner = process.env.GITHUB_REPOSITORY.split('/')[0];
+
+  return `${githubOwner}.github.io`;
+}
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   basePath: getBasePath(),
@@ -21,7 +31,7 @@ const nextConfig = {
     unoptimized: true,
   },
 
-  publicRuntimeConfig: { basePath: getBasePath() },
+  publicRuntimeConfig: { basePath: getBasePath(), domain: getDomain() },
 };
 
 module.exports = nextConfig;
