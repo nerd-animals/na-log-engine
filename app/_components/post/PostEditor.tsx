@@ -120,17 +120,12 @@ export default function PostEditor() {
             onChange={handleChangeInputPost}
           />
         </div>
-        <input
-          className="date"
-          type="date"
-          value={formattedDate}
-          onChange={handleChangeInputPost}
-        />
-        <input
-          className="author"
-          type="text"
-          placeholder="글쓴이를 입력해주세요"
-          value={post.frontMatter.author}
+      </div>
+      <div className="content-wrapper">
+        <textarea
+          className="content"
+          value={post.content}
+          placeholder="글 내용을 입력하세요"
           onChange={handleChangeInputPost}
         />
       </div>
