@@ -86,23 +86,38 @@ export default function PostEditor() {
           placeholder="제목을 입력해주세요"
           onChange={handleChangeInputPost}
         />
-        <div className="tags-wrapper">
-          <input
-            className="tags"
-            type="text"
-            placeholder="태그를 입력해주세요"
-            value={inputTag}
-            onChange={handleChangeInputTag}
-            onPaste={handlePasteInputTag}
-            onKeyDown={handleKeyDownValue}
-            onFocus={showToast}
-            onBlur={hideToast}
-          />
-          <Toast
-            toast={toast}
-            message={`쉼표 혹은 엔터를 입력하여 태그를 등록할 수 있습니다.
+        <div className="info-wrapper">
+          <div className="tags-wrapper">
+            <input
+              className="tags"
+              type="text"
+              placeholder="태그를 입력해주세요"
+              value={inputTag}
+              onChange={handleChangeInputTag}
+              onPaste={handlePasteInputTag}
+              onKeyDown={handleKeyDownValue}
+              onFocus={showToast}
+              onBlur={hideToast}
+            />
+            <Toast
+              toast={toast}
+              message={`쉼표 혹은 엔터를 입력하여 태그를 등록할 수 있습니다.
             백스페이스를 입력하여 태그를 삭제할 수 있습니다.
           `}
+            />
+          </div>
+          <input
+            className="date"
+            type="date"
+            value={formattedDate}
+            onChange={handleChangeInputPost}
+          />
+          <input
+            className="author"
+            type="text"
+            placeholder="글쓴이를 입력해주세요"
+            value={post.frontMatter.author}
+            onChange={handleChangeInputPost}
           />
         </div>
         <input
