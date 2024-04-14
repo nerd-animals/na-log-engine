@@ -410,8 +410,7 @@ body {
 }
 
 // toast style
-.toast,
-.toast-active {
+.toast {
   position: absolute;
   background-color: #333;
   color: #fff;
@@ -422,9 +421,6 @@ body {
 }
 
 .toast {
-  animation: fade-out-top 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-}
-.toast-active {
   animation: slide-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
@@ -436,16 +432,5 @@ body {
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@keyframes fade-out-top {
-  from {
-    opacity: 1;
-    transform: translateY(0%);
-  }
-  to {
-    opacity: 0;
-    transform: translateY(-20%);
   }
 }
