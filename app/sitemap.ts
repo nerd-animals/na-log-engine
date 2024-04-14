@@ -16,7 +16,7 @@ function generateSiteMap(slug: string, date: Date) {
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const allPosts = PostManager.getInstance().getAllPost();
-  const allRoutes = ['', 'about'];
+  const allRoutes = ['', '/about'];
 
   const postSiteMap = allPosts.map((post) => {
     const slug = post.frontMatter.slug.join('/');
