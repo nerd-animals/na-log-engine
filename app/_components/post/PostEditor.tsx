@@ -3,7 +3,7 @@ import { Post } from 'lib/PostManager';
 import { PostContext } from '@/_context/PostContext';
 import Toast from '@/_components/design/Toast';
 import useToast from '@/_hooks/useToast';
-import useDownloadMdx from '@/_hooks/useDownloadMdx';
+import WriteNav from '@/_components/layout/WriteNav';
 
 export default function PostEditor() {
   const { post, setPost, updateTags } = useContext(PostContext);
@@ -12,7 +12,6 @@ export default function PostEditor() {
   const formattedDate: string = post.frontMatter.date
     .toISOString()
     .substring(0, 10);
-  const handleDownloadMdx = useDownloadMdx();
 
   const addTag = () => {
     if (inputTag.trim() === '' || post.frontMatter.tags.includes(inputTag)) {
@@ -120,14 +119,7 @@ export default function PostEditor() {
           onChange={handleChangeInputPost}
         />
       </div>
-      <textarea
-        className="content"
-        value={post.content}
-        onChange={handleChangeInputPost}
-      />
-      <button type="button" onClick={handleDownloadMdx}>
-        다운로드
-      </button>
+      <WriteNav />
     </div>
   );
 }
