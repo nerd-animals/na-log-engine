@@ -20,9 +20,9 @@ export default function Post({ params }: { params: { slug: string[] } }) {
   }
 
   return (
-    <div className="post-wrapper">
+    <>
       <PostViewer post={post} />
       <Giscus />
-    </div>
+    </>
   );
 }

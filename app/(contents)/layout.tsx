@@ -8,7 +8,7 @@ export default function BlogLayout({
   return (
     <>
       <Header />
-      {children}
+      <main className="contents-wrapper">{children}</main>
     </>
   );
 }

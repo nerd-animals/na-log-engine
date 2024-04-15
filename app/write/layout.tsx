@@ -3,5 +3,9 @@ export default function WriteLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <div className="write-wrapper">{children}</div>;
+  return (
+    <div className="write-page-wrapper">
+      <main className="write-wrapper">{children}</main>
+    </div>
+  );
 }

@@ -8,14 +8,16 @@ export default function Home() {
   return (
     <>
       <Header />
-      <Bio />
-      <main className="post-card-wrapper">
-        {allPosts.map((post) => (
-          <PostCard
-            key={post.frontMatter.slug.join('/')}
-            frontMatter={post.frontMatter}
-          />
-        ))}
+      <main className="home-wrapper">
+        <Bio />
+        <div className="post-card-container">
+          {allPosts.map((post) => (
+            <PostCard
+              key={post.frontMatter.slug.join('/')}
+              frontMatter={post.frontMatter}
+            />
+          ))}
+        </div>
       </main>
     </>
   );
