@@ -380,7 +380,7 @@ body {
 // write style
 .write {
   &-page-wrapper {
-    height: 100vh;
+    height: 90vh;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -394,7 +394,6 @@ body {
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
-    margin-bottom: 25px;
   }
 
   &-preview-wrapper,
