@@ -451,6 +451,30 @@ body {
   }
 }
 
+// navigation style
+.navigation-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+  box-shadow: 0 -5px 5px -1px rgb(217, 217, 217);
+  .back,
+  .download {
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Pretendard Variable';
+    background-color: rgb(170, 255, 178, 0.6);
+    transition: background-color 0.5s ease;
+    &:hover {
+      background-color: rgb(170, 255, 178);
+      cursor: pointer;
+    }
+  }
+}
+
 // toast style
 .toast {
   position: absolute;
