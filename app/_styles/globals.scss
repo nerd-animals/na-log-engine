@@ -402,6 +402,21 @@ body {
     height: 100%;
     overflow-y: auto;
   }
+  @include lg {
+    &-preview-wrapper {
+      display: none;
+    }
+  }
+  @include md {
+    &-preview-wrapper {
+      display: none;
+    }
+  }
+  @include xs {
+    &-preview-wrapper {
+      display: none;
+    }
+  }
 
   &-preview {
     &-wrapper {
