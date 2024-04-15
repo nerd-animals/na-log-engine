@@ -507,7 +507,8 @@ body {
 
 // toast style
 .toast {
-  position: absolute;
+  position: fixed;
+  top: 120px;
   background-color: #333;
   color: #fff;
   padding: 5px 5px;

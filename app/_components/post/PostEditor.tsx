@@ -99,12 +99,6 @@ export default function PostEditor() {
               onFocus={showToast}
               onBlur={hideToast}
             />
-            <Toast
-              toast={toast}
-              message={`쉼표 혹은 엔터를 입력하여 태그를 등록할 수 있습니다.
-            백스페이스를 입력하여 태그를 삭제할 수 있습니다.
-          `}
-            />
           </div>
           <input
             className="date"
@@ -120,6 +114,12 @@ export default function PostEditor() {
             onChange={handleChangeInputPost}
           />
         </div>
+        <Toast
+          toast={toast}
+          message={`쉼표 혹은 엔터를 입력하여 태그를 등록할 수 있습니다.
+            백스페이스를 입력하여 태그를 삭제할 수 있습니다.
+          `}
+        />
       </div>
       <div className="content-wrapper">
         <textarea
