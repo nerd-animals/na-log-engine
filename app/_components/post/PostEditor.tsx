@@ -3,7 +3,7 @@ import { Post } from 'lib/PostManager';
 import { PostContext } from '@/_context/PostContext';
 import Toast from '@/_components/design/Toast';
 import useToast from '@/_hooks/useToast';
-import useDownloadMdx from '@/_hooks/useDownloadMdx';
+import WriteNav from '@/_components/layout/WriteNav';
 
 export default function PostEditor() {
   const { post, setPost, updateTags } = useContext(PostContext);
@@ -12,7 +12,6 @@ export default function PostEditor() {
   const formattedDate: string = post.frontMatter.date
     .toISOString()
     .substring(0, 10);
-  const handleDownloadMdx = useDownloadMdx();
 
   const addTag = () => {
     if (inputTag.trim() === '' || post.frontMatter.tags.includes(inputTag)) {
@@ -87,47 +86,50 @@ export default function PostEditor() {
           placeholder="제목을 입력해주세요"
           onChange={handleChangeInputPost}
         />
-        <div className="tags-wrapper">
+        <div className="info-wrapper">
+          <div className="tags-wrapper">
+            <input
+              className="tags"
+              type="text"
+              placeholder="태그를 입력해주세요"
+              value={inputTag}
+              onChange={handleChangeInputTag}
+              onPaste={handlePasteInputTag}
+              onKeyDown={handleKeyDownValue}
+              onFocus={showToast}
+              onBlur={hideToast}
+            />
+          </div>
           <input
-            className="tags"
-            type="text"
-            placeholder="태그를 입력해주세요"
-            value={inputTag}
-            onChange={handleChangeInputTag}
-            onPaste={handlePasteInputTag}
-            onKeyDown={handleKeyDownValue}
-            onFocus={showToast}
-            onBlur={hideToast}
+            className="date"
+            type="date"
+            value={formattedDate}
+            onChange={handleChangeInputPost}
           />
-          <Toast
-            toast={toast}
-            message={`쉼표 혹은 엔터를 입력하여 태그를 등록할 수 있습니다.
-            백스페이스를 입력하여 태그를 삭제할 수 있습니다.
-          `}
+          <input
+            className="author"
+            type="text"
+            placeholder="글쓴이를 입력해주세요"
+            value={post.frontMatter.author}
+            onChange={handleChangeInputPost}
           />
         </div>
-        <input
-          className="date"
-          type="date"
-          value={formattedDate}
-          onChange={handleChangeInputPost}
+        <Toast
+          toast={toast}
+          message={`쉼표 혹은 엔터를 입력하여 태그를 등록할 수 있습니다.
+            백스페이스를 입력하여 태그를 삭제할 수 있습니다.
+          `}
         />
-        <input
-          className="author"
-          type="text"
-          placeholder="글쓴이를 입력해주세요"
-          value={post.frontMatter.author}
+      </div>
+      <div className="content-wrapper">
+        <textarea
+          className="content"
+          value={post.content}
+          placeholder="글 내용을 입력하세요"
           onChange={handleChangeInputPost}
         />
       </div>
-      <textarea
-        className="content"
-        value={post.content}
-        onChange={handleChangeInputPost}
-      />
-      <button type="button" onClick={handleDownloadMdx}>
-        다운로드
-      </button>
+      <WriteNav />
     </div>
   );
 }

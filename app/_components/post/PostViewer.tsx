@@ -6,7 +6,9 @@ export default function PostViewer({ post }: { post: Post }) {
   return (
     <div className="post-wrapper">
       <PostHeader data={post.frontMatter} />
-      <MdxContent content={post.content} />
+      <div className="post-content">
+        <MdxContent content={post.content} />
+      </div>
     </div>
   );
 }

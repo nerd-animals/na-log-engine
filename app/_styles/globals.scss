@@ -14,17 +14,38 @@ mark {
 
 body {
   font-family: 'Pretendard Variable';
+  margin: 0;
 }
 // page style
 .page-wrapper {
-  max-width: 100%;
+  min-height: 100vh;
   position: relative;
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: 0px auto;
+}
+
+.home-wrapper {
+  max-width: 800px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contents-wrapper {
+  max-width: 800px;
+  width: 100%;
 }
 
 // header style
 .page-header-wrapper {
   display: flex;
+  width: 100%;
+  max-width: 800px;
   height: 0 auto;
   justify-content: center;
   margin-bottom: 50px;
@@ -56,8 +77,9 @@ body {
 
 // footer style
 .footer-wrapper {
-  margin: 0 auto;
-  max-width: 800px;
+  margin: 0px auto;
+  padding: 10px;
+  max-width: 100%;
 }
 .page-footer {
   font-size: 1.125rem;
@@ -81,7 +103,7 @@ body {
   justify-content: center;
   align-items: center;
   height: auto;
-  max-width: 800px;
+  width: 100%;
   margin: 0px auto 30px;
 
   &-profile {
@@ -117,20 +139,22 @@ body {
 }
 
 // postcard style
-.post-card-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  min-height: 130px;
-  flex-direction: column;
-}
 .post-card {
+  &-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    margin-inline: 10px;
+  }
+  &-wrapper {
+    width: 100%;
+    min-height: 130px;
+  }
+  height: 100%;
   display: flex;
   flex-direction: column;
-  max-width: 800px;
-  height: 100%;
-  width: 100%;
   border: 1px solid;
   border-radius: 10px;
   padding: 15px;
@@ -285,8 +309,9 @@ body {
 // post/[...slug] style
 .post {
   &-wrapper {
-    margin: 0px auto;
-    max-width: 800px;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
   }
 
   &-category {
@@ -346,6 +371,7 @@ body {
   }
   &-content {
     width: 100%;
+    height: 100%;
     margin-bottom: 20px;
     word-break: break-word;
   }
@@ -353,66 +379,149 @@ body {
 
 // write style
 .write {
+  &-page-wrapper {
+    height: 90vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: calc(100% + 2%);
+  }
   &-wrapper {
-    max-width: 1200px;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
-    margin: 0 auto;
   }
 
+  &-preview-wrapper,
   &-editor {
-    flex: 1;
-    max-width: 50%;
-    margin-right: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    .front-matter {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      .title {
-        font-size: 2.5em;
-        font-weight: bold;
-        width: 100%;
-      }
-      .tags-wrapper {
-        position: relative;
-        width: 100%;
-      }
-      .tags {
-        width: 100%;
-      }
-      .author {
-        width: 100%;
-      }
+    flex: 1 1;
+    height: 100%;
+    overflow-y: auto;
+  }
+  @include lg {
+    &-preview-wrapper {
+      display: none;
     }
-    .content {
-      width: 100%;
-      min-height: 500px;
-      resize: none;
-      margin-top: 10px;
-      border-radius: 5px;
+  }
+  @include md {
+    &-preview-wrapper {
+      display: none;
+    }
+  }
+  @include xs {
+    &-preview-wrapper {
+      display: none;
     }
   }
 
   &-preview {
-    flex: 1;
-    max-width: 50%;
-    border: 1px solid;
-    border-radius: 5px;
-    width: 500px;
-    min-height: 590px;
+    &-wrapper {
+      background-color: #f6f6f6;
+      z-index: 2;
+    }
     padding: 20px;
+  }
+
+  &-editor {
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+
+    .title,
+    .tags,
+    .author,
+    .date,
+    .content {
+      border: none;
+      font-family: 'Pretendard Variable';
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .front-matter {
+      display: flex;
+      flex-direction: column;
+      padding-top: 40px;
+      padding-inline: 40px;
+      .info-wrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-top: 10px;
+      }
+      .title {
+        font-size: 2.5em;
+        font-weight: bold;
+      }
+      .tags-wrapper {
+        position: relative;
+        flex: 2.5;
+      }
+      .date {
+        flex: 1.5;
+        font-size: 1em;
+        text-align: right;
+      }
+      .tags {
+        font-size: 1em;
+        width: 100%;
+      }
+      .author {
+        margin-top: 10px;
+        font-size: 1em;
+        width: 100%;
+        text-align: right;
+      }
+    }
+    .content {
+      &-wrapper {
+        height: 100%;
+        padding-top: 40px;
+        padding-inline: 40px;
+      }
+      padding: 0px;
+      width: 100%;
+      height: 100%;
+      resize: none;
+      font-size: 1rem;
+    }
+  }
+}
+
+// navigation style
+.navigation-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+  box-shadow: 0 -5px 5px -1px rgb(217, 217, 217);
+  .back,
+  .download {
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Pretendard Variable';
+    background-color: rgb(170, 255, 178, 0.6);
+    transition: background-color 0.5s ease;
+    &:hover {
+      background-color: rgb(170, 255, 178);
+      cursor: pointer;
+    }
   }
 }
 
 // toast style
-.toast,
-.toast-active {
-  position: absolute;
+.toast {
+  position: fixed;
+  top: 120px;
   background-color: #333;
   color: #fff;
   padding: 5px 5px;
@@ -422,9 +531,6 @@ body {
 }
 
 .toast {
-  animation: fade-out-top 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-}
-.toast-active {
   animation: slide-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
@@ -436,16 +542,5 @@ body {
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@keyframes fade-out-top {
-  from {
-    opacity: 1;
-    transform: translateY(0%);
-  }
-  to {
-    opacity: 0;
-    transform: translateY(-20%);
   }
 }

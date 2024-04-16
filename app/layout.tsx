@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import config from 'public/config.json';
-import Header from '@/_components/layout/Header';
 import Footer from '@/_components/layout/Footer';
 import '@/_styles/globals.scss';
 
@@ -26,7 +25,6 @@ export default function RootLayout({
       </head>
       <body>
         <div className="page-wrapper">
-          <Header />
           {children}
           <Footer />
         </div>
