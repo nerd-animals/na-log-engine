@@ -9,12 +9,14 @@ function WriteContent() {
   const { post } = useContext(PostContext);
 
   return (
-    <div className="write-wrapper">
+    <>
       <PostEditor />
-      <div className="write-preview">
-        <PostViewer post={post} />
+      <div className="write-preview-wrapper">
+        <div className="write-preview">
+          <PostViewer post={post} />
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

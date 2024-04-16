@@ -5,5 +5,5 @@ export default function Toast({
   toast: boolean;
   message: string;
 }) {
-  return <div className={`toast${toast ? '-active' : ''}`}>{message}</div>;
+  return toast && <div className="toast">{message}</div>;
 }
