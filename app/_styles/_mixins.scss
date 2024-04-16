@@ -16,6 +16,13 @@
 
 // Large devices
 @mixin lg {
+  @media (min-width: #{$screen-md}) and (max-width: #{$screen-lg - 1}) {
+    @content;
+  }
+}
+
+// X-Large devices
+@mixin xl {
   @media (min-width: #{$screen-lg}) {
     @content;
   }
