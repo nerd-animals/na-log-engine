@@ -7,6 +7,10 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: config.title,
     description: config.description,
+    openGraph: {
+      title: config.title,
+      description: config.description,
+    },
   };
 }
 
