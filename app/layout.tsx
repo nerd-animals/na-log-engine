@@ -1,12 +1,24 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import config from 'public/config.json';
 import Footer from '@/_components/layout/Footer';
 import '@/_styles/globals.scss';
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  minimumScale: 2,
+  maximumScale: 0.5,
+  userScalable: true,
+};
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
     title: config.title,
     description: config.description,
+    openGraph: {
+      title: config.title,
+      description: config.description,
+    },
   };
 }
 
