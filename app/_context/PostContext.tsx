@@ -7,6 +7,7 @@ import {
   Dispatch,
   SetStateAction,
 } from 'react';
+import useModal from '@/_hooks/useModal';
 
 const defaultPost: Post = {
   frontMatter: {
@@ -23,11 +24,17 @@ const defaultPost: Post = {
 export const PostContext = createContext<{
   post: Post;
   setPost: Dispatch<SetStateAction<Post>>;
+  isOpenModal: boolean;
+  openModal: () => void;
+  closeModal: () => void;
   updateSummary: (e: React.ChangeEvent<HTMLInputElement>) => void;
   updateTags: (newTags: string[]) => void;
 }>({
   post: defaultPost,
   setPost: () => {},
+  isOpenModal: false,
+  openModal: () => {},
+  closeModal: () => {},
   updateSummary: () => {},
   updateTags: () => {},
 });
@@ -56,14 +63,19 @@ function PostProvider({ children }: { children: ReactNode }) {
     }));
   };
 
+  const { isOpenModal, openModal, closeModal } = useModal();
+
   const value = useMemo(
     () => ({
       post,
       setPost,
+      isOpenModal,
+      openModal,
+      closeModal,
       updateSummary,
       updateTags,
     }),
-    [post, setPost]
+    [post, setPost, isOpenModal, openModal, closeModal]
   );
 
   return <PostContext.Provider value={value}>{children}</PostContext.Provider>;
