@@ -11,22 +11,29 @@ export default function PreviewModal() {
     isOpenModal && (
       <div className="preview-modal-wrapper">
         <div className="preview-modal">
-          <input
-            className="summary"
-            type="text"
-            value={post.frontMatter.summary}
-            onChange={updateSummary}
-          />
-          <button
-            type="button"
-            className="download"
-            onClick={handleDownloadMdx}
-          >
-            🧑🏻‍💻 포스팅 다운로드
-          </button>
-          <button type="button" onClick={closeModal}>
-            닫기
-          </button>
+          <div className="preview-modal-content">
+            <h1>포스트 요약</h1>
+            <div className="preview-modal-summary">
+              <textarea
+                className="summary"
+                value={post.frontMatter.summary}
+                placeholder="요약을 입력하세요"
+                onChange={updateSummary}
+              />
+            </div>
+          </div>
+          <div className="preview-modal-nav">
+            <button
+              type="button"
+              className="download"
+              onClick={handleDownloadMdx}
+            >
+              🚀 다운로드
+            </button>
+            <button type="button" className="close" onClick={closeModal}>
+              닫기
+            </button>
+          </div>
         </div>
       </div>
     )
