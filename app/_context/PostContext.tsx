@@ -23,16 +23,28 @@ const defaultPost: Post = {
 export const PostContext = createContext<{
   post: Post;
   setPost: Dispatch<SetStateAction<Post>>;
+  updateSummary: (e: React.ChangeEvent<HTMLInputElement>) => void;
   updateTags: (newTags: string[]) => void;
 }>({
   post: defaultPost,
   setPost: () => {},
+  updateSummary: () => {},
   updateTags: () => {},
 });
 
 function PostProvider({ children }: { children: ReactNode }) {
   const [post, setPost]: [Post, Dispatch<SetStateAction<Post>>] =
     useState<Post>(defaultPost);
+
+  const updateSummary = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPost((prevPost: Post) => ({
+      ...prevPost,
+      frontMatter: {
+        ...prevPost.frontMatter,
+        summary: e.target.value,
+      },
+    }));
+  };
 
   const updateTags = (newTags: string[]) => {
     setPost((prevPost: Post) => ({
@@ -48,6 +60,7 @@ function PostProvider({ children }: { children: ReactNode }) {
     () => ({
       post,
       setPost,
+      updateSummary,
       updateTags,
     }),
     [post, setPost]
