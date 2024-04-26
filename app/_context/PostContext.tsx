@@ -27,7 +27,7 @@ export const PostContext = createContext<{
   isOpenModal: boolean;
   openModal: () => void;
   closeModal: () => void;
-  updateSummary: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  updateSummary: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
   updateTags: (newTags: string[]) => void;
 }>({
   post: defaultPost,
@@ -43,7 +43,7 @@ function PostProvider({ children }: { children: ReactNode }) {
   const [post, setPost]: [Post, Dispatch<SetStateAction<Post>>] =
     useState<Post>(defaultPost);
 
-  const updateSummary = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const updateSummary = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setPost((prevPost: Post) => ({
       ...prevPost,
       frontMatter: {
