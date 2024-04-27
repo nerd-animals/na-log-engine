@@ -2,6 +2,7 @@
 
 import PostViewer from '@/_components/post/PostViewer';
 import PostEditor from '@/_components/post/PostEditor';
+import PreviewModal from '@/_components/post/PreviewModal';
 import { PostContext, PostProvider } from '@/_context/PostContext';
 import { useContext } from 'react';
 
@@ -16,6 +17,7 @@ function WriteContent() {
           <PostViewer post={post} />
         </div>
       </div>
+      <PreviewModal />
     </>
   );
 }

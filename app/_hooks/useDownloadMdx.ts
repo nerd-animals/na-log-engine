@@ -14,6 +14,7 @@ export default function useDownloadMdx() {
 
     const mdxContent = `---
 title: '${post.frontMatter.title}'
+summary: '${post.frontMatter.summary}'
 author: '${post.frontMatter.author}'
 tags: [${formattedTags}]
 date: ${formattedDate}
