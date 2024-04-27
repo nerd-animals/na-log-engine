@@ -1,13 +1,14 @@
 import { useContext, useState } from 'react';
-import { Post } from 'lib/PostManager';
 import { PostContext } from '@/_context/PostContext';
 import Toast from '@/_components/design/Toast';
 import useToast from '@/_hooks/useToast';
 import WriteNav from '@/_components/layout/WriteNav';
+import useEditPost from '@/_hooks/useEditPost';
 
 export default function PostEditor() {
-  const { post, setPost, updateTags } = useContext(PostContext);
+  const { post, updateTags } = useContext(PostContext);
   const [inputTag, setInputTag] = useState('');
+  const handleChangeInputPost = useEditPost();
   const { toast, showToast, hideToast } = useToast();
   const formattedDate: string = post.frontMatter.date
     .toISOString()
@@ -31,23 +32,6 @@ export default function PostEditor() {
     if (e.target.value.startsWith(',')) {
       setTimeout(() => setInputTag(''), 30);
     }
-  };
-
-  const handleChangeInputPost = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setPost((prevPost: Post) => ({
-      ...prevPost,
-      frontMatter: {
-        ...prevPost.frontMatter,
-        [e.target.className]:
-          e.target.className === 'date'
-            ? new Date(e.target.value)
-            : e.target.value,
-      },
-      content:
-        e.target.className === 'content' ? e.target.value : prevPost.content,
-    }));
   };
 
   const handlePasteInputTag = (e: React.ClipboardEvent<HTMLInputElement>) => {
