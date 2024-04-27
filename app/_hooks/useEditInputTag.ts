@@ -41,7 +41,7 @@ export default function useEditInputTag(initialInput: string = '') {
     }
   };
 
-  const handleKeyDownValue = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  const handleKeyDownInputTag = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === ',') {
       setTimeout(() => addTag(), 30);
     } else if (e.key === 'Enter' && e.nativeEvent.isComposing === false)
@@ -55,6 +55,6 @@ export default function useEditInputTag(initialInput: string = '') {
     inputTag,
     handleChangeInputTag,
     handlePasteInputTag,
-    handleKeyDownValue,
+    handleKeyDownInputTag,
   };
 }

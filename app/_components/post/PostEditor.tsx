@@ -14,7 +14,7 @@ export default function PostEditor() {
     inputTag,
     handleChangeInputTag,
     handlePasteInputTag,
-    handleKeyDownValue,
+    handleKeyDownInputTag,
   } = useEditInputTag();
   const { toast, showToast, hideToast } = useToast();
 
@@ -41,7 +41,7 @@ export default function PostEditor() {
               value={inputTag}
               onChange={handleChangeInputTag}
               onPaste={handlePasteInputTag}
-              onKeyDown={handleKeyDownValue}
+              onKeyDown={handleKeyDownInputTag}
               onFocus={showToast}
               onBlur={hideToast}
             />
