@@ -385,7 +385,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: calc(100% + 2%);
+    width: calc(100% + 20px);
   }
   &-wrapper {
     width: 100%;
@@ -421,7 +421,6 @@ body {
   &-preview {
     &-wrapper {
       background-color: #f6f6f6;
-      z-index: 2;
     }
     padding: 20px;
   }
@@ -429,7 +428,6 @@ body {
   &-editor {
     display: flex;
     flex-direction: column;
-    z-index: 1;
 
     .title,
     .tags,
@@ -502,7 +500,7 @@ body {
   padding: 10px;
   box-shadow: 0 -5px 5px -1px rgb(217, 217, 217);
   .back,
-  .download {
+  .posting {
     font-size: 1rem;
     font-weight: 600;
     padding: 10px;
@@ -542,5 +540,91 @@ body {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+// preview-modal style
+.preview-modal-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(5px);
+  animation: fade-in-bottom 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  @keyframes fade-in-bottom {
+    0% {
+      transform: translateY(50px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  .preview-modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: #e3e3e3;
+    min-width: 300px;
+    max-width: 400px;
+    padding: 20px;
+
+    &-content {
+      margin-bottom: 20px;
+      width: 100%;
+    }
+    &-summary {
+      width: 100%;
+
+      textarea {
+        width: 100%;
+        resize: none;
+        margin: 0px;
+        border: none;
+        outline: none;
+        height: 100px;
+        padding: 10px;
+        box-sizing: border-box;
+        line-height: 1.5;
+        font-family: 'Pretendard Variable';
+      }
+    }
+
+    &-nav {
+      display: flex;
+      align-self: flex-end;
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        border: none;
+        margin-right: 5px;
+        transition: background-color 0.5s ease;
+        font-weight: bold;
+      }
+      button.download {
+        background-color: rgb(170, 255, 178, 0.6);
+      }
+      button.download:hover {
+        background-color: rgb(170, 255, 178);
+      }
+      button.close {
+        background-color: rgba(74, 74, 74, 0.5);
+        color: #fff;
+      }
+      button.close:hover {
+        background-color: rgba(74, 74, 74);
+      }
+    }
   }
 }
