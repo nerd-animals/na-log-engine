@@ -1,64 +1,26 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { PostContext } from '@/_context/PostContext';
 import Toast from '@/_components/design/Toast';
 import useToast from '@/_hooks/useToast';
 import WriteNav from '@/_components/layout/WriteNav';
 import useEditPost from '@/_hooks/useEditPost';
+import useEditInputTag from '@/_hooks/useEditInputTag';
 
 export default function PostEditor() {
-  const { post, updateTags } = useContext(PostContext);
-  const [inputTag, setInputTag] = useState('');
+  const { post } = useContext(PostContext);
+
   const handleChangeInputPost = useEditPost();
+  const {
+    inputTag,
+    handleChangeInputTag,
+    handlePasteInputTag,
+    handleKeyDownValue,
+  } = useEditInputTag();
   const { toast, showToast, hideToast } = useToast();
+
   const formattedDate: string = post.frontMatter.date
     .toISOString()
     .substring(0, 10);
-
-  const addTag = () => {
-    if (inputTag.trim() === '' || post.frontMatter.tags.includes(inputTag)) {
-      setInputTag('');
-    } else if (inputTag !== '')
-      updateTags([...post.frontMatter.tags, inputTag.trim()]);
-    setInputTag('');
-  };
-
-  const deleteTag = () => {
-    if (inputTag === '') updateTags(post.frontMatter.tags.slice(0, -1));
-  };
-
-  const handleChangeInputTag = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputTag(e.target.value);
-
-    if (e.target.value.startsWith(',')) {
-      setTimeout(() => setInputTag(''), 30);
-    }
-  };
-
-  const handlePasteInputTag = (e: React.ClipboardEvent<HTMLInputElement>) => {
-    const pastedData = e.clipboardData.getData('text');
-
-    if (pastedData.includes(',')) {
-      e.preventDefault();
-
-      const tagsWithComma = pastedData
-        .split(',')
-        .filter((tag: string) => tag.trim() !== '');
-
-      updateTags(
-        Array.from(new Set([...post.frontMatter.tags, ...tagsWithComma]))
-      );
-    }
-  };
-
-  const handleKeyDownValue = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === ',') {
-      setTimeout(() => addTag(), 30);
-    } else if (e.key === 'Enter' && e.nativeEvent.isComposing === false)
-      addTag();
-    else if (e.key === 'Backspace') {
-      deleteTag();
-    }
-  };
 
   return (
     <div className="write-editor">
