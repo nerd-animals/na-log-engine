@@ -575,9 +575,9 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     background-color: #e3e3e3;
-    min-width: 300px;
-    max-width: 400px;
-    padding: 20px;
+    width: 500px;
+    max-width: 70%;
+    padding: 25px;
 
     &-content {
       margin-bottom: 20px;
@@ -592,8 +592,8 @@ body {
         margin: 0px;
         border: none;
         outline: none;
-        height: 100px;
-        padding: 10px;
+        height: 150px;
+        padding: 20px;
         box-sizing: border-box;
         line-height: 1.5;
         font-family: 'Pretendard Variable';
