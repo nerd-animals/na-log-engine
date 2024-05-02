@@ -1,5 +1,6 @@
 'use client';
 
+import '@/_styles/mdx.scss';
 import { useState, useEffect } from 'react';
 import { unified } from 'unified';
 import remarkParse from 'remark-parse';
