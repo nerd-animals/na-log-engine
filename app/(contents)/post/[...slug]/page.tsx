@@ -3,7 +3,6 @@ import { notFound } from 'next/navigation';
 import PostManager from 'lib/PostManager';
 import PostViewer from '@/_components/post/PostViewer';
 import Giscus from '@/_components/tools/Giscus';
-import '@/_styles/mdx.scss';
 
 export async function generateMetadata({
   params,
