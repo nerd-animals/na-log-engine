@@ -21,7 +21,7 @@ export default function PostTab({ initialPosts }: { initialPosts: Post[] }) {
 
   return (
     <>
-      <div className="post-tab-wrapper">
+      <div className="post-tab-container">
         <button
           type="button"
           className="post-tab-button-all"
