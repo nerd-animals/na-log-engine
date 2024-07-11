@@ -1,6 +1,6 @@
 import Bio from '@/_components/custom/Bio';
-import PostCard from '@/_components/post/PostCard';
 import Header from '@/_components/layout/Header';
+import PostTab from '@/_components/post/PostTab';
 import PostManager from 'lib/PostManager';
 
 export default function Home() {
@@ -10,13 +10,8 @@ export default function Home() {
       <Header />
       <main className="home-wrapper">
         <Bio />
-        <div className="post-card-container">
-          {allPosts.map((post) => (
-            <PostCard
-              key={post.frontMatter.slug.join('/')}
-              frontMatter={post.frontMatter}
-            />
-          ))}
+        <div className="post-container">
+          <PostTab initialPosts={allPosts} />
         </div>
       </main>
     </>

@@ -137,15 +137,21 @@ body {
   }
 }
 
+// post style
+.post-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  margin-inline: 10px;
+}
 // postcard style
 .post-card {
   &-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
     width: 100%;
-    justify-content: center;
-    margin-inline: 10px;
   }
   &-wrapper {
     width: 100%;
