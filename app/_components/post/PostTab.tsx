@@ -43,7 +43,7 @@ export default function PostTab({ initialPosts }: { initialPosts: Post[] }) {
       <div className="post-card-container">
         {filteredPosts.map((post) => (
           <PostCard
-            key={post.frontMatter.slug}
+            key={post.frontMatter.slug.join('/')}
             frontMatter={post.frontMatter}
           />
         ))}
