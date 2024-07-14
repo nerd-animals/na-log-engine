@@ -25,14 +25,14 @@ export default function PostSearch({ initialPosts }: { initialPosts: Post[] }) {
     : posts;
 
   return (
-    <>
+    <div className="search-wrapper">
       <input
         className="search"
         type="text"
         value={searchedPostTitle}
-        onChange={handleChangeInputSearchedPostTitle}
-        onFocus={handleFocus}
-        onBlur={handleBlur}
+        onChange={handleChangeSearchInput}
+        onFocus={handleFocusSearchInput}
+        onBlur={handleBlurSearchInput}
       />
       {isFocusedSearchInput &&
         (searchedPosts.length > 0 ? (
@@ -46,6 +46,6 @@ export default function PostSearch({ initialPosts }: { initialPosts: Post[] }) {
         ) : (
           <div>해당하는 글이 없습니다.</div>
         ))}
-    </>
+    </div>
   );
 }
