@@ -9,16 +9,14 @@ export default function PostSearch({ initialPosts }: { initialPosts: Post[] }) {
   const [isFocusedSearchInput, setIsFocusedSearchInput] = useState(false);
   const [searchedPostTitle, setSearchedPostTitle] = useState('');
 
-  const handleChangeInputSearchedPostTitle = (
-    e: React.ChangeEvent<HTMLInputElement>
-  ) => {
+  const handleChangeSearchInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchedPostTitle(e.target.value);
   };
 
-  const handleFocus = () => {
+  const handleFocusSearchInput = () => {
     setIsFocusedSearchInput(true);
   };
-  const handleBlur = () => {
+  const handleBlurSearchInput = () => {
     setIsFocusedSearchInput(false);
   };
 
