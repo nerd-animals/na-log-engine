@@ -266,6 +266,12 @@ body {
   }
 }
 
+.category-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 .about-member {
   display: flex;
   align-items: center;

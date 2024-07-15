@@ -7,7 +7,7 @@ export default function Home() {
   const allPosts = PostManager.getInstance().getAllPost();
   return (
     <>
-      <Header />
+      <Header initialPosts={allPosts} />
       <main className="home-wrapper">
         <Bio />
         <div className="post-container">
