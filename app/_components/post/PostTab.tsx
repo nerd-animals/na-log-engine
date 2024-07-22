@@ -22,8 +22,9 @@ export default function PostTab({ initialPosts }: { initialPosts: Post[] }) {
       )
     : posts;
 
-  const initialPostCount = 4;
-  const [postCount, setPostCount] = useState(initialPostCount);
+  const morePost = () => {
+    setPostCount(postCount + initialPostCount);
+  };
 
   return (
     <>
@@ -47,14 +48,14 @@ export default function PostTab({ initialPosts }: { initialPosts: Post[] }) {
         ))}
       </div>
       <div className="post-card-container">
-        {filteredPosts.map((post) => (
+        {filteredPosts.slice(0, postCount).map((post) => (
           <PostCard
             key={post.frontMatter.slug.join('/')}
             frontMatter={post.frontMatter}
           />
         ))}
       </div>
-      <PostMoreButton postCount={postCount} />
+      <PostMoreButton morePost={morePost} />
     </>
   );
 }
