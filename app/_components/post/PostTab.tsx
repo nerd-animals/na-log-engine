@@ -32,7 +32,10 @@ export default function PostTab({ initialPosts }: { initialPosts: Post[] }) {
         <button
           type="button"
           className="post-tab-button-all"
-          onClick={() => setSelectedCategory(null)}
+          onClick={() => {
+            setSelectedCategory(null);
+            setPostCount(initialPostCount);
+          }}
         >
           All
         </button>
@@ -41,7 +44,10 @@ export default function PostTab({ initialPosts }: { initialPosts: Post[] }) {
             type="button"
             key={category}
             className={`post-tab-button-${category}`}
-            onClick={() => setSelectedCategory(category)}
+            onClick={() => {
+              setSelectedCategory(category);
+              setPostCount(initialPostCount);
+            }}
           >
             {category}
           </button>
