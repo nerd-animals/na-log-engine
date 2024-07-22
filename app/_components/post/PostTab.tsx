@@ -3,10 +3,13 @@
 import { useState } from 'react';
 import { Post } from 'lib/PostManager';
 import PostCard from '@/_components/post/PostCard';
+import PostMoreButton from '@/_components/post/PostMoreButton';
 
 export default function PostTab({ initialPosts }: { initialPosts: Post[] }) {
   const posts = initialPosts;
+  const initialPostCount = 4;
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [postCount, setPostCount] = useState(initialPostCount);
 
   const categories = Array.from(
     new Set(posts.map((post) => post.frontMatter.slug.slice(0, -1).join('/')))
@@ -18,6 +21,9 @@ export default function PostTab({ initialPosts }: { initialPosts: Post[] }) {
           post.frontMatter.slug.slice(0, -1).join('/') === selectedCategory
       )
     : posts;
+
+  const initialPostCount = 4;
+  const [postCount, setPostCount] = useState(initialPostCount);
 
   return (
     <>
@@ -48,6 +54,7 @@ export default function PostTab({ initialPosts }: { initialPosts: Post[] }) {
           />
         ))}
       </div>
+      <PostMoreButton postCount={postCount} />
     </>
   );
 }
