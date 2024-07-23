@@ -22,6 +22,8 @@ export default function PostTab({ initialPosts }: { initialPosts: Post[] }) {
       )
     : posts;
 
+  const hasMorePosts = filteredPosts.length > postCount;
+
   const morePost = () => {
     setPostCount(postCount + initialPostCount);
   };
@@ -61,7 +63,7 @@ export default function PostTab({ initialPosts }: { initialPosts: Post[] }) {
           />
         ))}
       </div>
-      <PostMoreButton morePost={morePost} />
+      {hasMorePosts && <PostMoreButton morePost={morePost} />}
     </>
   );
 }
