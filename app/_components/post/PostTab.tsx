@@ -25,7 +25,9 @@ export default function PostTab({ initialPosts }: { initialPosts: Post[] }) {
   const hasMorePosts = filteredPosts.length > postCount;
 
   const morePost = () => {
-    setPostCount(postCount + initialPostCount);
+    const remainedPosts = filteredPosts.length - postCount;
+    const countIncrement = Math.min(remainedPosts, initialPostCount)
+    setPostCount(postCount + countIncrement);
   };
 
   return (
