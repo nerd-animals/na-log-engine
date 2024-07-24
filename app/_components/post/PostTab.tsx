@@ -3,10 +3,13 @@
 import { useState } from 'react';
 import { Post } from 'lib/PostManager';
 import PostCard from '@/_components/post/PostCard';
+import PostMoreButton from '@/_components/post/PostMoreButton';
 
 export default function PostTab({ initialPosts }: { initialPosts: Post[] }) {
   const posts = initialPosts;
+  const initialPostCount = 4;
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [postCount, setPostCount] = useState(initialPostCount);
 
   const categories = Array.from(
     new Set(posts.map((post) => post.frontMatter.slug.slice(0, -1).join('/')))
@@ -19,13 +22,24 @@ export default function PostTab({ initialPosts }: { initialPosts: Post[] }) {
       )
     : posts;
 
+  const hasMorePosts = filteredPosts.length > postCount;
+
+  const morePost = () => {
+    const remainedPosts = filteredPosts.length - postCount;
+    const countIncrement = Math.min(remainedPosts, initialPostCount)
+    setPostCount(postCount + countIncrement);
+  };
+
   return (
     <>
       <div className="post-tab-container">
         <button
           type="button"
           className="post-tab-button-all"
-          onClick={() => setSelectedCategory(null)}
+          onClick={() => {
+            setSelectedCategory(null);
+            setPostCount(initialPostCount);
+          }}
         >
           All
         </button>
@@ -34,20 +48,24 @@ export default function PostTab({ initialPosts }: { initialPosts: Post[] }) {
             type="button"
             key={category}
             className={`post-tab-button-${category}`}
-            onClick={() => setSelectedCategory(category)}
+            onClick={() => {
+              setSelectedCategory(category);
+              setPostCount(initialPostCount);
+            }}
           >
             {category}
           </button>
         ))}
       </div>
       <div className="post-card-container">
-        {filteredPosts.map((post) => (
+        {filteredPosts.slice(0, postCount).map((post) => (
           <PostCard
             key={post.frontMatter.slug.join('/')}
             frontMatter={post.frontMatter}
           />
         ))}
       </div>
+      {hasMorePosts && <PostMoreButton morePost={morePost} />}
     </>
   );
 }
