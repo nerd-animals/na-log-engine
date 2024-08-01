@@ -26,16 +26,18 @@ export default function PostTab({ initialPosts }: { initialPosts: Post[] }) {
 
   const morePost = () => {
     const remainedPosts = filteredPosts.length - postCount;
-    const countIncrement = Math.min(remainedPosts, initialPostCount)
+    const countIncrement = Math.min(remainedPosts, initialPostCount);
     setPostCount(postCount + countIncrement);
   };
 
   return (
     <>
-      <div className="post-tab-container">
+      <div className="post-tab-container" role="tablist">
         <button
           type="button"
-          className="post-tab-button-all"
+          className="post-tab-button"
+          role="tab"
+          aria-selected={selectedCategory === null}
           onClick={() => {
             setSelectedCategory(null);
             setPostCount(initialPostCount);
@@ -47,7 +49,9 @@ export default function PostTab({ initialPosts }: { initialPosts: Post[] }) {
           <button
             type="button"
             key={category}
-            className={`post-tab-button-${category}`}
+            className="post-tab-button"
+            role="tab"
+            aria-selected={selectedCategory === category}
             onClick={() => {
               setSelectedCategory(category);
               setPostCount(initialPostCount);
