@@ -146,6 +146,47 @@ body {
   justify-content: center;
   margin-inline: 10px;
 }
+// post-tab style
+.post-tab {
+  &-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  &-button {
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    background-color: #f0f0f0;
+    color: #333;
+    font-family: 'Pretendard Variable';
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #e0e0e0;
+    }
+
+    &:focus-visible {
+      outline: 2px solid rgba(0, 0, 0, 0.1);
+      outline-offset: 2px;
+    }
+
+    &[aria-selected='true'] {
+      background-color: #a5a5a5;
+      color: #ffffff;
+
+      &:hover {
+        background-color: #7b7b7b;
+      }
+    }
+  }
+}
+
 // postcard style
 .post-card {
   &-container {
