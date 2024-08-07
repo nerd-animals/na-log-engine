@@ -44,7 +44,7 @@ export default function PostSearch({ initialPosts }: { initialPosts: Post[] }) {
             />
           ))
         ) : (
-          <div>해당하는 글이 없습니다.</div>
+          <div className="post-search-result">해당하는 글이 없습니다.</div>
         ))}
     </div>
   );
