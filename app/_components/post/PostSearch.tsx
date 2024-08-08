@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Post } from 'lib/PostManager';
 import PostSearchList from '@/_components/post/PostSearchList';
 
@@ -8,6 +8,15 @@ export default function PostSearch({ initialPosts }: { initialPosts: Post[] }) {
   const posts = initialPosts;
   const [isFocusedSearchInput, setIsFocusedSearchInput] = useState(false);
   const [searchedPostTitle, setSearchedPostTitle] = useState('');
+  const [isInputVisible, setIsInputVisible] = useState(false);
+
+  const inputRef = useRef<HTMLInputElement | null>(null);
+
+  useEffect(() => {
+    if (isInputVisible && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [isInputVisible]);
 
   const handleChangeSearchInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchedPostTitle(e.target.value);
