@@ -31,7 +31,10 @@ export default function PostSearch({ initialPosts }: { initialPosts: Post[] }) {
   };
 
   const handleBlurSearchInput = () => {
-    setIsFocusedSearchInput(false);
+    setTimeout(() => {
+      setIsFocusedSearchInput(false);
+      setIsInputVisible(false);
+    }, 200);
   };
 
   const searchedPosts = searchedPostTitle
