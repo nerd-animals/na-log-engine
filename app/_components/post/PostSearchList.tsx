@@ -8,8 +8,8 @@ export default function PostSearchList({
   title: string;
 }) {
   return (
-    <Link className="search-result" href={`/post/${slug}`}>
-      <div className="search-result-title">{title}</div>
+    <Link className="post-search-result" href={`/post/${slug}`}>
+      <div className="post-search-result-title">{title}</div>
     </Link>
   );
 }
