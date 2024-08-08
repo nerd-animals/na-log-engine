@@ -25,6 +25,11 @@ export default function PostSearch({ initialPosts }: { initialPosts: Post[] }) {
   const handleFocusSearchInput = () => {
     setIsFocusedSearchInput(true);
   };
+
+  const handleSearchClick = () => {
+    setIsInputVisible(true);
+  };
+
   const handleBlurSearchInput = () => {
     setIsFocusedSearchInput(false);
   };
