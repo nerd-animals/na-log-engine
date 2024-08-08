@@ -34,6 +34,7 @@ export default function PostSearch({ initialPosts }: { initialPosts: Post[] }) {
     setTimeout(() => {
       setIsFocusedSearchInput(false);
       setIsInputVisible(false);
+      setSearchedPostTitle('');
     }, 200);
   };
 
