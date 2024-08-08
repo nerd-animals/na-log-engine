@@ -58,6 +58,12 @@ export default function PostSearch({ initialPosts }: { initialPosts: Post[] }) {
           onBlur={handleBlurSearchInput}
         />
       </div>
+      <button
+        type="button"
+        aria-label="Save"
+        className="post-search-button"
+        onClick={handleSearchClick}
+      />
       {isFocusedSearchInput && isInputVisible && (
         <div className="post-search-results">
           {searchedPosts.length > 0 ? (
