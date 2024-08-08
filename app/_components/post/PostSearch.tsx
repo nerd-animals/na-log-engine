@@ -42,27 +42,39 @@ export default function PostSearch({ initialPosts }: { initialPosts: Post[] }) {
     : posts;
 
   return (
-    <div className="search-wrapper">
-      <input
-        className="search"
-        type="text"
-        value={searchedPostTitle}
-        onChange={handleChangeSearchInput}
-        onFocus={handleFocusSearchInput}
-        onBlur={handleBlurSearchInput}
-      />
-      {isFocusedSearchInput &&
-        (searchedPosts.length > 0 ? (
-          searchedPosts.map((post) => (
-            <PostSearchList
-              key={post.frontMatter.slug.join('/')}
-              slug={post.frontMatter.slug.join('/')}
-              title={post.frontMatter.title}
-            />
-          ))
-        ) : (
-          <div className="post-search-result">해당하는 글이 없습니다.</div>
-        ))}
+    <div
+      className={`post-search-container ${isInputVisible ? 'expanded' : ''}`}
+    >
+      <div
+        className={`post-search-input-wrapper ${isInputVisible ? 'visible' : ''}`}
+      >
+        <input
+          ref={inputRef}
+          className="post-search-input"
+          type="text"
+          value={searchedPostTitle}
+          onChange={handleChangeSearchInput}
+          onFocus={handleFocusSearchInput}
+          onBlur={handleBlurSearchInput}
+        />
+      </div>
+      {isFocusedSearchInput && isInputVisible && (
+        <div className="post-search-results">
+          {searchedPosts.length > 0 ? (
+            searchedPosts.map((post) => (
+              <PostSearchList
+                key={post.frontMatter.slug.join('/')}
+                slug={post.frontMatter.slug.join('/')}
+                title={post.frontMatter.title}
+              />
+            ))
+          ) : (
+            <div className="post-search-result-title">
+              해당하는 글이 없습니다.
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 }
