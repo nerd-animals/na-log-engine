@@ -76,7 +76,7 @@ export default function PostSearch({ initialPosts }: { initialPosts: Post[] }) {
               />
             ))
           ) : (
-            <PostSearchList title="해당하는 글이 없습니다." />
+            <PostSearchList slug="" title="해당하는 글이 없습니다." />
           )}
         </div>
       )}

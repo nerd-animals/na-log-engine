@@ -4,7 +4,7 @@ export default function PostSearchList({
   slug,
   title,
 }: {
-  slug: string | null;
+  slug: string;
   title: string;
 }) {
   const content = <div className="post-search-result-title">{title}</div>;
