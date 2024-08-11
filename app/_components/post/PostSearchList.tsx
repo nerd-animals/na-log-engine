@@ -7,13 +7,13 @@ export default function PostSearchList({
   slug: string | null;
   title: string;
 }) {
+  const content = <div className="post-search-result-title">{title}</div>;
+
   return slug ? (
     <Link className="post-search-result" href={`/post/${slug}`}>
-      <div className="post-search-result-title">{title}</div>
+      {content}
     </Link>
   ) : (
-    <div className="post-search-result">
-      <div className="post-search-result-title">{title}</div>
-    </div>
+    <div className="post-search-result">{content}</div>
   );
 }
