@@ -76,9 +76,7 @@ export default function PostSearch({ initialPosts }: { initialPosts: Post[] }) {
               />
             ))
           ) : (
-            <div className="post-search-result-title">
-              해당하는 글이 없습니다.
-            </div>
+            <PostSearchList title="해당하는 글이 없습니다." />
           )}
         </div>
       )}
