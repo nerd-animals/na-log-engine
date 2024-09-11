@@ -1,7 +1,7 @@
 'use client';
 
+import React, { useState, useEffect, useMemo } from 'react';
 import '@/_styles/mdx.scss';
-import { useState, useEffect } from 'react';
 import { unified } from 'unified';
 import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
@@ -14,11 +14,14 @@ import rehypeExternalLinks from 'rehype-external-links';
 import remarkGfm from 'remark-gfm';
 import remarkBreaks from 'remark-breaks';
 
+const contentThreshold = 10000; // 문자 수 기준점
+const delay = 100; // ms 단위의 지연 시간
+
 export default function MdxContent({ content }: { content: string }) {
   const [htmlContent, setHtmlContent] = useState('');
 
-  useEffect(() => {
-    async function processContent() {
+  const processContent = useMemo(
+    () => async (markdown: string) => {
       const html = await unified()
         .use(remarkParse)
         .use(remarkGfm)
@@ -41,11 +44,30 @@ export default function MdxContent({ content }: { content: string }) {
           target: '_blank',
           rel: ['noopener noreferrer'],
         })
-        .process(content);
+        .process(markdown);
 
-      setHtmlContent(html.toString());
+      setHtmlContent(String(html));
+    },
+    []
+  );
+
+  useEffect(() => {
+    const contentLength = content.length;
+    const dynamicDelay =
+      contentLength > contentThreshold
+        ? delay * (contentLength / contentThreshold)
+        : delay;
+
+    if (contentLength <= contentThreshold) {
+      processContent(content);
+      return () => {};
     }
-    processContent();
-  }, [content]);
+    const timer = setTimeout(() => {
+      processContent(content);
+    }, dynamicDelay);
+
+    return () => clearTimeout(timer);
+  }, [content, processContent]);
+
   return <div dangerouslySetInnerHTML={{ __html: htmlContent }} />;
 }
