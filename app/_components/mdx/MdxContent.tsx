@@ -13,6 +13,7 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeExternalLinks from 'rehype-external-links';
 import remarkGfm from 'remark-gfm';
 import remarkBreaks from 'remark-breaks';
+import { throttle } from 'throttle-debounce';
 
 const contentThreshold = 10000; // 문자 수 기준점
 const delay = 100; // ms 단위의 지연 시간
@@ -51,6 +52,11 @@ export default function MdxContent({ content }: { content: string }) {
     []
   );
 
+  const throttledProcessContent = useMemo(
+    () => throttle(delay, processContent),
+    [processContent]
+  );
+
   useEffect(() => {
     const contentLength = content.length;
     const dynamicDelay =
@@ -67,7 +73,7 @@ export default function MdxContent({ content }: { content: string }) {
     }, dynamicDelay);
 
     return () => clearTimeout(timer);
-  }, [content, processContent]);
+  }, [content, processContent, throttledProcessContent]);
 
   return <div dangerouslySetInnerHTML={{ __html: htmlContent }} />;
 }
